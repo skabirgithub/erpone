@@ -1,4 +1,5 @@
+/vendor/
 /.idea
 /.vscode
 /vendor/srmklive/paypal/tests/Mocks/samples/sample2.pdf
-/vendor/srmklive/paypal/tests/Mocks/samples/sample.pdf 
+/vendor/srmklive/paypal/tests/Mocks/samples/sample.pdf

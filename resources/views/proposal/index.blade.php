@@ -79,8 +79,10 @@
 {{--                                @if(!\Auth::guard('customer')->check())--}}
 {{--                                    <th> {{__('Customer')}}</th>--}}
 {{--                                @endif--}}
+                                <th> {{__('Name')}}</th>
                                 <th> {{__('Category')}}</th>
                                 <th> {{__('Issue Date')}}</th>
+                                <th> {{__('Amount')}}</th>
                                 <th> {{__('Status')}}</th>
                                 @if(Gate::check('edit proposal') || Gate::check('delete proposal') || Gate::check('show proposal'))
                                     <th width="10%"> {{__('Action')}}</th>
@@ -101,8 +103,10 @@
                                         </a>
                                     </td>
 
+                                    <td>{{ !empty($proposal->category)?$proposal->customer->name:''}}</td>
                                     <td>{{ !empty($proposal->category)?$proposal->category->name:''}}</td>
                                     <td>{{ Auth::user()->dateFormat($proposal->issue_date) }}</td>
+                                    <td>{{ Auth::user()->priceFormat($proposal->getTotal()) }}</td>
                                     <td>
                                         @if($proposal->status == 0)
                                             <span class="status_badge badge bg-primary p-2 px-3 rounded">{{ __(\App\Models\Proposal::$statues[$proposal->status]) }}</span>

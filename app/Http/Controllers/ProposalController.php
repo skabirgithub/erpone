@@ -59,9 +59,14 @@ class ProposalController extends Controller
             {
                 $query->where('status', '=', $request->status);
             }
-            $proposals = $query->get();
 
-            return view('proposal.index', compact('proposals', 'customer', 'status'));
+             $proposals = $query->get();
+             $pulok = 0;
+             foreach($proposals as $myprop){
+                $pulok += $myprop->getTotal();
+             }
+
+            return view('proposal.index', compact('proposals', 'customer', 'status','pulok'));
         }
         else
         {

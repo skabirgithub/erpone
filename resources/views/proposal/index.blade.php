@@ -30,17 +30,31 @@
 @endpush
 @section('content')
 
+
+
     <div class="row">
         <div class="col-sm-12">
             <div class=" mt-2 " id="multiCollapseExample1">
                 <div class="card">
+                    <div class="card-head">
+                        <div class="container m-4">
+                            Total: {{ $pulok }}
+                        </div>
+                    </div>
                     <div class="card-body">
                             {{ Form::open(array('route' => array('proposal.index'),'method' => 'GET','id'=>'frm_submit')) }}
                         <div class="d-flex align-items-center justify-content-end">
+
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 me-2">
                                 <div class="btn-box">
                                     {{ Form::label('issue_date', __('Date'),['class'=>'form-label']) }}
                                     {{ Form::text('issue_date', isset($_GET['issue_date'])?$_GET['issue_date']:null, array('class' => 'form-control month-btn','id'=>'pc-daterangepicker-1')) }}
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
+                                <div class="btn-box">
+                                    {{ Form::label('customer', __('Customer'),['class'=>'form-label']) }}
+                                    {{ Form::select('customer',  $customer,isset($_GET['customer'])?$_GET['customer']:'', array('class' => 'form-control select')) }}
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
@@ -54,7 +68,7 @@
                                 <a href="#" class="btn btn-sm btn-primary" onclick="document.getElementById('frm_submit').submit(); return false;" data-bs-toggle="tooltip" data-original-title="{{__('apply')}}">
                                     <span class="btn-inner--icon"><i class="ti ti-search"></i></span>
                                 </a>
-                                <a href="{{ route('productservice.index') }}" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                <a href="{{ route('proposal.index') }}" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
                                    title="{{ __('Reset') }}">
                                     <span class="btn-inner--icon"><i class="ti ti-trash-off text-white "></i></span>
                                 </a>
@@ -96,6 +110,7 @@
                             </tr>
                             </thead>
                             <tbody>
+
                             @foreach ($proposals as $proposal)
                                 <tr class="font-style">
                                     <td class="Id">

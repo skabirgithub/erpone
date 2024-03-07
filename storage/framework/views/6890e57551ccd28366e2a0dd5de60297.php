@@ -30,19 +30,36 @@
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
 
+
+
     <div class="row">
         <div class="col-sm-12">
             <div class=" mt-2 " id="multiCollapseExample1">
                 <div class="card">
+                    <div class="card-head">
+                        <div class="container m-4">
+                            Total: <?php echo e($pulok); ?>
+
+                        </div>
+                    </div>
                     <div class="card-body">
                             <?php echo e(Form::open(array('route' => array('proposal.index'),'method' => 'GET','id'=>'frm_submit'))); ?>
 
                         <div class="d-flex align-items-center justify-content-end">
+
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 me-2">
                                 <div class="btn-box">
                                     <?php echo e(Form::label('issue_date', __('Date'),['class'=>'form-label'])); ?>
 
                                     <?php echo e(Form::text('issue_date', isset($_GET['issue_date'])?$_GET['issue_date']:null, array('class' => 'form-control month-btn','id'=>'pc-daterangepicker-1'))); ?>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
+                                <div class="btn-box">
+                                    <?php echo e(Form::label('customer', __('Customer'),['class'=>'form-label'])); ?>
+
+                                    <?php echo e(Form::select('customer',  $customer,isset($_GET['customer'])?$_GET['customer']:'', array('class' => 'form-control select'))); ?>
 
                                 </div>
                             </div>
@@ -59,7 +76,7 @@
                                 <a href="#" class="btn btn-sm btn-primary" onclick="document.getElementById('frm_submit').submit(); return false;" data-bs-toggle="tooltip" data-original-title="<?php echo e(__('apply')); ?>">
                                     <span class="btn-inner--icon"><i class="ti ti-search"></i></span>
                                 </a>
-                                <a href="<?php echo e(route('productservice.index')); ?>" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                <a href="<?php echo e(route('proposal.index')); ?>" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
                                    title="<?php echo e(__('Reset')); ?>">
                                     <span class="btn-inner--icon"><i class="ti ti-trash-off text-white "></i></span>
                                 </a>
@@ -97,6 +114,7 @@
                             </tr>
                             </thead>
                             <tbody>
+
                             <?php $__currentLoopData = $proposals; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proposal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr class="font-style">
                                     <td class="Id">

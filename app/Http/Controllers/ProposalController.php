@@ -47,7 +47,7 @@ class ProposalController extends Controller
 
             if(!empty($request->customer))
             {
-                $query->where('id', '=', $request->customer);
+                $query->where('customer_id', '=', $request->customer);
             }
             if(!empty($request->issue_date))
             {
@@ -55,18 +55,26 @@ class ProposalController extends Controller
                 $query->whereBetween('issue_date', $date_range);
             }
 
-            if(!empty($request->status))
-            {
-                $query->where('status', '=', $request->status);
+
+
+            // return $request->status;
+
+            if ($request->has('status')) {
+                if($request->status=='all'){
+                }else{
+                    $query->where('status', $request->status);
+                }
             }
 
+
+
              $proposals = $query->get();
-             $pulok = 0;
+             $total_amount = 0;
              foreach($proposals as $myprop){
-                $pulok += $myprop->getTotal();
+                $total_amount += $myprop->getTotal();
              }
 
-            return view('proposal.index', compact('proposals', 'customer', 'status','pulok'));
+            return view('proposal.index', compact('proposals', 'customer', 'status','total_amount'));
         }
         else
         {

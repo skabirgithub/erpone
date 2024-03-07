@@ -38,7 +38,7 @@
                 <div class="card">
                     <div class="card-head">
                         <div class="container m-4">
-                            Total: <?php echo e($pulok); ?>
+                            Total: <?php echo e($total_amount); ?>
 
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                 <div class="btn-box">
                                     <?php echo e(Form::label('status', __('Status'),['class'=>'form-label'])); ?>
 
-                                    <?php echo e(Form::select('status', [ ''=>'Select Status'] + $status,isset($_GET['status'])?$_GET['status']:'', array('class' => 'form-control select'))); ?>
+                                    <?php echo e(Form::select('status', [ 'all'=>'Select Status'] + $status,isset($_GET['status'])?$_GET['status']:'', array('class' => 'form-control select'))); ?>
 
                                 </div>
                             </div>

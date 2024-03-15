@@ -11,14 +11,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\AssignProject;
 use App\Models\Customer;
 use App\Models\Invoice;
+use App\Models\InvoicePayment;
 use App\Models\InvoiceProduct;
+use App\Models\ProductService;
 use App\Models\Project;
 use App\Models\Utility;
 use App\Models\Tag;
 use App\Models\ProjectTask;
 use App\Models\TimeTracker;
 use App\Models\TrackPhoto;
-
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -197,7 +199,7 @@ class ApiController extends Controller
     {
         return $request;
     }
-    public function storecustomer(Request $request, Customer $customers){
+    public function storecustomer(Request $request){
             // $request->validate([
             //     'customer_id' => 'required|max:30|string',
             //     'name' => 'required|max:30|string',
@@ -226,6 +228,10 @@ class ApiController extends Controller
 
             $ctmr = Customer::create([
                 'customer_id'=> $request->customer_id,
+                'vivape_id'=> $request->vivape_id,
+                'vivape_user_id'=> $request->vivape_user_id,
+                'identity'=> $request->identity,
+                'identity_attachment'=> $request->identity_attachment,
                 'name'=> $request->name,
                 'email'=> $request->email,
                 'password'=> $request->password,
@@ -248,10 +254,7 @@ class ApiController extends Controller
                 'shipping_phone'=> $request->shipping_phone,
                 'shipping_zip'=> $request->shipping_zip,
                 'shipping_address'=> $request->shipping_address,
-                'vivape_id'=> $request->vivape_id,
-                'vivape_user_id'=> $request->vivape_user_id,
-                'identity'=> $request->identity,
-                'identity_attachment'=> $request->identity_attachment,
+
             ]);
 
             $data = [
@@ -272,52 +275,84 @@ class ApiController extends Controller
     {
         return $request;
     }
-    public function storeinvoice(Request $request, Invoice $invoice, InvoiceProduct $product){
-        // return $request;
+    public function storeInvoice(Request $request)
+    {
+        $sku = $request->sku;
+        $product = ProductService::where('sku', $sku)->first();
+
+        if (!$product) {
+            return response()->json(['error' => 'Product not found for SKU: ' . $sku], 404);
+        }
+
+        // Create the invoice
         $invoice = Invoice::create([
-            'invoice_id'=> $request->invoice_id,
-            'customer_id'=> $request->customer_id,
-            'sku'=> $request->sku,
-            'discount'=> $request->discount,
-            'commision'=> $request->commision,
-            'issue_date'=> $request->issue_date,
-            'due_date'=> $request->due_date,
-            'send_date'=> $request->send_date,
-            'category_id'=> $request->category_id,
-            'ref_number'=> $request->ref_number,
-            'status'=> $request->status,
-            'shipping_display'=> $request->shipping_display,
-            'discount_apply'=> $request->discount_apply,
-            'created_by'=> $request->created_by,
+            'invoice_id' => $request->invoice_id,
+            'customer_id' => $request->customer_id,
+            'sku' => $request->sku,
+            'commission' => $request->commission,
+            'issue_date' => $request->issue_date,
+            'due_date' => $request->due_date,
+            'send_date' => $request->send_date,
+            'category_id' => $request->category_id,
+            'ref_number' => $request->ref_number,
+            'type' => $request->type,
+            'status' => $request->status,
+            'shipping_display' => $request->shipping_display,
+            'discount_apply' => $request->discount_apply,
+            'created_by' => $request->created_by,
         ]);
 
-        // invoice cration
-        // check invoice type
-        $type = $request->type;
-        // search and get product from system based on product type
-        return $get_product = Product::where('name','like','%'.$type.'%')->get()->first();
-        // create the invoice_product
-        $create_invoice_product = InvoiceProduct::create( [
-            'product_id' => $get_product->id,
+        // Create the invoice product
+        $invoiceProduct = InvoiceProduct::create([
+            'product_id' => $product->id,
             'invoice_id' => $invoice->id,
             'quantity' => 1,
             'tax' => 0,
             'discount' => 0,
-            'total' => $request->amount,
+            'price' => $request->price,
         ]);
-    
-        
-    
+
+        // Create payment and transaction if status is 4
+        if ($request->status == 4) {
+            $invoicePayment = InvoicePayment::create([
+                'invoice_id' => $invoice->id,
+                'date' => $invoice->issue_date,
+                'amount' => $request->price,
+                'account_id' => $request->account_id,
+                'payment_method' => $request->payment_method,
+                'order_id' => $request->order_id,
+                'currency' => $request->currency,
+                'txn_id' => $request->txn_id,
+                'payment_type' => $request->payment_type,
+                'receipt' => $request->receipt,
+                'reference' => $request->reference,
+                'description' => $request->description,
+            ]);
+
+            $transaction = Transaction::create([
+                'invoice_id' => $invoice->id,
+                'account' => $request->account,
+                'type' => $request->type,
+                'amount' => $invoiceProduct->price,
+                'description' => $request->description,
+                'date' => $request->date,
+                'created_by' => $request->created_by,
+                'customer_id' => $request->customer_id,
+                'payment_id' => $invoicePayment->id,
+            ]);
+        }
+
+        // Fetch invoice with associated products
         $invoiceWithProducts = Invoice::with('products')->find($invoice->id);
-    
+
         $data = [
             'message' => 'Successfully created invoice',
             'api_note' => 'success',
             'invoice' => $invoiceWithProducts,
         ];
-    
+
         return response()->json($data);
     }
-    
 
-}
+    }
+

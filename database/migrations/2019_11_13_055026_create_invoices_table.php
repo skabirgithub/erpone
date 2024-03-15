@@ -19,7 +19,7 @@ class CreateInvoicesTable extends Migration
             $table->unsignedBigInteger('invoice_id');
             $table->unsignedBigInteger('customer_id');
             $table->string('sku');
-            $table->string('invoice_type');
+            $table->string('type');
             $table->date('issue_date');
             $table->date('due_date');
             $table->date('send_date')->nullable();

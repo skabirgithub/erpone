@@ -15,6 +15,7 @@ class Invoice extends Model
         'status',
         'commision',
         'sku',
+        'type',
         'product_id',
         'category_id',
         'created_by',

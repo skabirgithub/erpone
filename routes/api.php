@@ -22,4 +22,15 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('add-tracker', [ApiController::class, 'addTracker']);
     Route::post('stop-tracker', [ApiController::class, 'stopTracker']);
     Route::post('upload-photos', [ApiController::class, 'uploadImage']);
+
 });
+ Route::get('customer-creation', [ApiController::class, 'customercreation']);
+ Route::get('create-customer', [ApiController::class, 'createcustomer']);
+ Route::post('store-customer', [ApiController::class, 'storecustomer']);
+//  Route::get('customer-creation/{id}/edit',[ApiController::class, 'editcustomer']);
+//  Route::put('customer-creation/{id}/edit',[ApiController::class, 'updatecustomer']);
+
+
+ Route::get('invoice-creation', [ApiController::class, 'invoicecreation']);
+ Route::get('create-invoice', [ApiController::class, 'createinvoice']);
+ Route::post('store-invoice', [ApiController::class, 'storeinvoice']);

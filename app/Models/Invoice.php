@@ -13,8 +13,12 @@ class Invoice extends Model
         'due_date',
         'ref_number',
         'status',
+        'commision',
+        'sku',
+        'product_id',
         'category_id',
         'created_by',
+
     ];
 
     public static $statues = [
@@ -50,7 +54,7 @@ class Invoice extends Model
     }
 
 
-   
+
 
     // private static $getTotal = NULL;
     // public static function getTotal(){

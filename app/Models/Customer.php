@@ -39,6 +39,10 @@ class Customer extends Authenticatable
         'shipping_phone',
         'shipping_zip',
         'shipping_address',
+        'vivape_id',
+        'vivape_user_id',
+        'identity',
+        'identity_attachment',
     ];
 
     protected $hidden = [

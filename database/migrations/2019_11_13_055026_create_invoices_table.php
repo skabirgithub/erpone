@@ -18,9 +18,12 @@ class CreateInvoicesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('invoice_id');
             $table->unsignedBigInteger('customer_id');
+            $table->string('sku');
+            $table->string('invoice_type');
             $table->date('issue_date');
             $table->date('due_date');
             $table->date('send_date')->nullable();
+            $table->string('commision');
             $table->integer('category_id');
             $table->text('ref_number')->nullable();
             $table->integer('status')->default('0');

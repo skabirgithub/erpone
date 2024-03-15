@@ -9,6 +9,9 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AssignProject;
+use App\Models\Customer;
+use App\Models\Invoice;
+use App\Models\InvoiceProduct;
 use App\Models\Project;
 use App\Models\Utility;
 use App\Models\Tag;
@@ -185,5 +188,136 @@ class ApiController extends Controller
         $new->save();
         return $this->success( [],'Uploaded successfully.');
     }
+
+    public function customercreation()
+    {
+        return Customer::all();
+    }
+    public function createcustomer(Request $request)
+    {
+        return $request;
+    }
+    public function storecustomer(Request $request, Customer $customers){
+            // $request->validate([
+            //     'customer_id' => 'required|max:30|string',
+            //     'name' => 'required|max:30|string',
+            //     'email' => 'required|email',
+            //     'password' => 'required|max:30|string',
+            //     'contact' => 'required|max:30|string',
+            //     'avatar' => 'required|max:30|string',
+            //     'is_active' => 'required|max:30|string',
+            //     'created_by' => 'required|max:30|string',
+            //     'email_verified_at' => 'required|max:30|string',
+            //     'billing_name' => 'required|max:30|string',
+            //     'billing_country' => 'required|max:30|string',
+            //     'billing_state' => 'required|max:30|string',
+            //     'billing_city' => 'required|max:30|string',
+            //     'billing_phone' => 'required|max:30|string',
+            //     'billing_zip' => 'required|max:30|string',
+            //     'billing_address' => 'required|max:30|string',
+            //     'shipping_name' => 'required|max:30|string',
+            //     'shipping_country' => 'required|max:30|string',
+            //     'shipping_state' => 'required|max:30|string',
+            //     'shipping_city' => 'required|max:30|string',
+            //     'shipping_phone' => 'required|max:30|string',
+            //     'shipping_zip' => 'required|max:30|string',
+            //     'shipping_address' => 'required|max:30|string',
+            // ]);
+
+            $ctmr = Customer::create([
+                'customer_id'=> $request->customer_id,
+                'name'=> $request->name,
+                'email'=> $request->email,
+                'password'=> $request->password,
+                'contact'=> $request->contact,
+                'avatar'=> $request->avatar,
+                'is_active'=> $request->is_active,
+                'created_by'=> $request->created_by,
+                'email_verified_at'=> $request->email_verified_at,
+                'billing_name'=> $request->billing_name,
+                'billing_country'=> $request->billing_country,
+                'billing_state'=> $request->billing_state,
+                'billing_city'=> $request->billing_city,
+                'billing_phone'=> $request->billing_phone,
+                'billing_zip'=> $request->billing_zip,
+                'billing_address'=> $request->billing_address,
+                'shipping_name'=> $request->shipping_name,
+                'shipping_country'=> $request->shipping_country,
+                'shipping_state'=> $request->shipping_state,
+                'shipping_city'=> $request->shipping_city,
+                'shipping_phone'=> $request->shipping_phone,
+                'shipping_zip'=> $request->shipping_zip,
+                'shipping_address'=> $request->shipping_address,
+                'vivape_id'=> $request->vivape_id,
+                'vivape_user_id'=> $request->vivape_user_id,
+                'identity'=> $request->identity,
+                'identity_attachment'=> $request->identity_attachment,
+            ]);
+
+            $data = [
+                'message' => 'Successfully created customer',
+                'api_note' => 'success',
+                'customer' => $ctmr
+            ];
+
+            return response()->json($data);
+        }
+
+
+        public function invoicecreation()
+    {
+        return Invoice::all();
+    }
+    public function createinvoice(Request $request)
+    {
+        return $request;
+    }
+    public function storeinvoice(Request $request, Invoice $invoice, InvoiceProduct $product){
+        // return $request;
+        $invoice = Invoice::create([
+            'invoice_id'=> $request->invoice_id,
+            'customer_id'=> $request->customer_id,
+            'sku'=> $request->sku,
+            'discount'=> $request->discount,
+            'commision'=> $request->commision,
+            'issue_date'=> $request->issue_date,
+            'due_date'=> $request->due_date,
+            'send_date'=> $request->send_date,
+            'category_id'=> $request->category_id,
+            'ref_number'=> $request->ref_number,
+            'status'=> $request->status,
+            'shipping_display'=> $request->shipping_display,
+            'discount_apply'=> $request->discount_apply,
+            'created_by'=> $request->created_by,
+        ]);
+
+        // invoice cration
+        // check invoice type
+        $type = $request->type;
+        // search and get product from system based on product type
+        return $get_product = Product::where('name','like','%'.$type.'%')->get()->first();
+        // create the invoice_product
+        $create_invoice_product = InvoiceProduct::create( [
+            'product_id' => $get_product->id,
+            'invoice_id' => $invoice->id,
+            'quantity' => 1,
+            'tax' => 0,
+            'discount' => 0,
+            'total' => $request->amount,
+        ]);
+    
+        
+    
+        $invoiceWithProducts = Invoice::with('products')->find($invoice->id);
+    
+        $data = [
+            'message' => 'Successfully created invoice',
+            'api_note' => 'success',
+            'invoice' => $invoiceWithProducts,
+        ];
+    
+        return response()->json($data);
+    }
+    
 
 }

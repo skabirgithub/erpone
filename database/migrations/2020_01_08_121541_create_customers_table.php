@@ -17,8 +17,13 @@ class CreateCustomersTable extends Migration
             'customers', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->integer('customer_id');
+            $table->integer('vivape_id');
+            $table->integer('vivape_user_id');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->string('identity')->nullable();
+            $table->string('password')->nullable();
+            $table->string('identity_attachment')->nullable();
             $table->string('tax_number')->nullable();
             $table->string('contact')->nullable();
             $table->string('avatar', 100)->default('');

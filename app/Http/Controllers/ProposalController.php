@@ -55,18 +55,13 @@ class ProposalController extends Controller
                 $query->whereBetween('issue_date', $date_range);
             }
 
-
-
             // return $request->status;
-
             if ($request->has('status')) {
                 if($request->status=='all'){
                 }else{
                     $query->where('status', $request->status);
                 }
             }
-
-
 
              $proposals = $query->get();
              $total_amount = 0;

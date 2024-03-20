@@ -9,6 +9,7 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AssignProject;
+use App\Models\BankAccount;
 use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\InvoicePayment;
@@ -18,6 +19,7 @@ use App\Models\Project;
 use App\Models\Utility;
 use App\Models\Tag;
 use App\Models\ProjectTask;
+use App\Models\StockReport;
 use App\Models\TimeTracker;
 use App\Models\TrackPhoto;
 use App\Models\Transaction;
@@ -200,32 +202,6 @@ class ApiController extends Controller
         return $request;
     }
     public function storecustomer(Request $request){
-            // $request->validate([
-            //     'customer_id' => 'required|max:30|string',
-            //     'name' => 'required|max:30|string',
-            //     'email' => 'required|email',
-            //     'password' => 'required|max:30|string',
-            //     'contact' => 'required|max:30|string',
-            //     'avatar' => 'required|max:30|string',
-            //     'is_active' => 'required|max:30|string',
-            //     'created_by' => 'required|max:30|string',
-            //     'email_verified_at' => 'required|max:30|string',
-            //     'billing_name' => 'required|max:30|string',
-            //     'billing_country' => 'required|max:30|string',
-            //     'billing_state' => 'required|max:30|string',
-            //     'billing_city' => 'required|max:30|string',
-            //     'billing_phone' => 'required|max:30|string',
-            //     'billing_zip' => 'required|max:30|string',
-            //     'billing_address' => 'required|max:30|string',
-            //     'shipping_name' => 'required|max:30|string',
-            //     'shipping_country' => 'required|max:30|string',
-            //     'shipping_state' => 'required|max:30|string',
-            //     'shipping_city' => 'required|max:30|string',
-            //     'shipping_phone' => 'required|max:30|string',
-            //     'shipping_zip' => 'required|max:30|string',
-            //     'shipping_address' => 'required|max:30|string',
-            // ]);
-
             $ctmr = Customer::create([
                 'customer_id'=> $request->customer_id,
                 'vivape_id'=> $request->vivape_id,
@@ -233,6 +209,7 @@ class ApiController extends Controller
                 'identity'=> $request->identity,
                 'identity_attachment'=> $request->identity_attachment,
                 'name'=> $request->name,
+                'balance'=> $request->balance,
                 'email'=> $request->email,
                 'password'=> $request->password,
                 'contact'=> $request->contact,
@@ -240,7 +217,7 @@ class ApiController extends Controller
                 'is_active'=> $request->is_active,
                 'created_by'=> $request->created_by,
                 'email_verified_at'=> $request->email_verified_at,
-                'billing_name'=> $request->billing_name,
+                'billing_name'=> $request->name,
                 'billing_country'=> $request->billing_country,
                 'billing_state'=> $request->billing_state,
                 'billing_city'=> $request->billing_city,
@@ -311,6 +288,13 @@ class ApiController extends Controller
             'discount' => 0,
             'price' => $request->price,
         ]);
+        $stockReport = StockReport::create([
+            'product_id' => $product->id,
+            'quantity'=> 1,
+            'type'=> $request->type,
+            'type_id' => $request->type_id,
+            'description' => $request->description,
+        ]);
 
         // Create payment and transaction if status is 4
         if ($request->status == 4) {
@@ -340,15 +324,30 @@ class ApiController extends Controller
                 'customer_id' => $request->customer_id,
                 'payment_id' => $invoicePayment->id,
             ]);
+            $bankAccount = BankAccount::create([
+                'holder_name' => $request->holder_name,
+                'bank_name' => $request->bank_name,
+                'account_number' => $request->account_number,
+                'chart_account_id' => $request->chart_account_id,
+                'opening_balance' => $request->opening_balance,
+                'contact_number' => $request->contact_number,
+                'bank_address' => $request->bank_address,
+                'created_by' => $request->created_by,
+            ]);
         }
 
-        // Fetch invoice with associated products
-        $invoiceWithProducts = Invoice::with('products')->find($invoice->id);
+        // // Fetch invoice with associated products
+        // $invoiceWithProducts = Invoice::with('products')->find($invoice->id);
 
         $data = [
             'message' => 'Successfully created invoice',
             'api_note' => 'success',
-            'invoice' => $invoiceWithProducts,
+            'Invoice' => $invoice,
+            'InvoiceProduct' => $invoiceProduct,
+            'StockReport' => $stockReport,
+            'InvoicePayment' => $invoicePayment,
+            'Transaction' => $transaction,
+            'BankAccount' => $bankAccount,
         ];
 
         return response()->json($data);

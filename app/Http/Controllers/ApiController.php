@@ -301,7 +301,7 @@ class ApiController extends Controller
             $invoicePayment = InvoicePayment::create([
                 'invoice_id' => $invoice->id,
                 'date' => $invoice->issue_date,
-                'amount' => $request->price,
+                'amount' => $request->amount,
                 'account_id' => $request->account_id,
                 'payment_method' => $request->payment_method,
                 'order_id' => $request->order_id,
@@ -314,22 +314,24 @@ class ApiController extends Controller
             ]);
 
             $transaction = Transaction::create([
-                'invoice_id' => $invoice->id,
-                'account' => $request->account,
-                'type' => $request->type,
-                'amount' => $invoiceProduct->price,
-                'description' => $request->description,
-                'date' => $request->date,
-                'created_by' => $request->created_by,
-                'customer_id' => $request->customer_id,
-                'payment_id' => $invoicePayment->id,
+                'user_id'=> $request->customer_id,
+                'user_type'=> $request->user_type,
+                'account'=> $request->account_id,
+                'type'=> $request->type,
+                'amount'=> $request->amount,
+                'description'=> $request->description,
+                'date'=> $invoice->issue_date,
+                'created_by'=> $request->created_by,
+                'payment_id'=> $request->payment_id,
+                'category'=> $request->category,
             ]);
+
             $bankAccount = BankAccount::create([
                 'holder_name' => $request->holder_name,
                 'bank_name' => $request->bank_name,
                 'account_number' => $request->account_number,
                 'chart_account_id' => $request->chart_account_id,
-                'opening_balance' => $request->opening_balance,
+                'opening_balance' => $request->amount,
                 'contact_number' => $request->contact_number,
                 'bank_address' => $request->bank_address,
                 'created_by' => $request->created_by,

@@ -250,9 +250,13 @@ class ApiController extends Controller
     {
         $sku = $request->sku;
         $product = ProductService::where('sku', $sku)->first();
-
         if (!$product) {
             return response()->json(['error' => 'Product not found for SKU: ' . $sku], 404);
+        }
+
+        $bank_acc = BankAccount::where('id', $request->account_id)->first();
+        if (!$bank_acc) {
+            return response()->json(['error' => 'Mo Bank Account for #: ' . $request->account_id], 404);
         }
 
         // Create the invoice

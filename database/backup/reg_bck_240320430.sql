@@ -963,7 +963,7 @@ CREATE TABLE `credit_notes` (
 CREATE TABLE `customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `vivape_id` int(11) NOT NULL,
+  `vivape_id` varchar(191) DEFAULT NULL,
   `vivape_user_id` int(11) NOT NULL,
   `name` varchar(191) DEFAULT NULL,
   `email` varchar(191) DEFAULT NULL,

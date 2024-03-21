@@ -256,13 +256,17 @@ class ApiController extends Controller
 
         $bank_acc = BankAccount::where('id', $request->account_id)->first();
         if (!$bank_acc) {
-            return response()->json(['error' => 'Mo Bank Account for #: ' . $request->account_id], 404);
+            return response()->json(['error' => 'No Bank Account for #: ' . $request->account_id], 404);
+        }
+        $customer = Customer::where('customer_id', $request->customer_id)->first();
+        if (!$customer) {
+            return response()->json(['error' => 'No Customer for #: ' . $request->customer_id], 404);
         }
 
         // Create the invoice
         $invoice = Invoice::create([
             'invoice_id' => $request->invoice_id,
-            'customer_id' => $request->customer_id,
+            'customer_id' => $customer->id,
             'sku' => $request->sku,
             'commission' => $request->commission,
             'issue_date' => $request->issue_date,

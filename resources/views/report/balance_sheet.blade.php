@@ -49,13 +49,13 @@
                 function callback() {
                     var start_date = $(".startDate").val();
                     var end_date = $(".endDate").val();
-    
+
                     $('.start_date').val(start_date);
                     $('.end_date').val(end_date);
-    
+
                 }
                 });
-    
+
         </script>
 
 
@@ -184,7 +184,7 @@
                                                     $totalCredit = 0;
                                                     $totalDebit = 0;
                                                     $totalBalance = 0;
-                                                    
+
                                                     $totalCredit += $record['totalCredit'];
                                                     $totalDebit += $record['totalDebit'];
                                                     $getAccount = \App\Models\ChartOfAccount::where('name', $record['account_name'])->first();
@@ -211,7 +211,7 @@
             $authUser = \Auth::user()->creatorId();
             $user = App\Models\User::find($authUser);
         @endphp
-        
+
         <div class="row justify-content-center" id="printableArea">
             <div class="col-md-8">
                 <div class="card">
@@ -223,7 +223,7 @@
                         <div
                             class="aacount-title d-flex align-items-center justify-content-between border-top border-bottom py-2">
                             <h6 class="mb-0">{{ __('Account') }}</h6>
-                            <h6 class="mb-0 text-center">{{ _('Account Code') }}</h6>
+                            <h6 class="mb-0 text-center">{{ __('Account Code') }}</h6>
                             <h6 class="mb-0 text-end">{{ __('Total') }}</h6>
                         </div>
                         @php

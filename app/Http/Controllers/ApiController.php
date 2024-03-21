@@ -288,7 +288,7 @@ class ApiController extends Controller
             'quantity' => 1,
             'tax' => 0,
             'discount' => 0,
-            'price' => $request->price,
+            'price' => $request->amount,
         ]);
         $stockReport = StockReport::create([
             'product_id' => $product->id,
@@ -343,7 +343,6 @@ class ApiController extends Controller
                     'created_by' => $request->created_by,
                 ]);
             }
-
         }
 
         // // Fetch invoice with associated products

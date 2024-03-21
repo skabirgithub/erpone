@@ -284,4 +284,17 @@ class Customer extends Authenticatable
         return ($customer != null) ? $customer->id : 0;
     }
 
+    public function getBalance()
+    {
+        return $this->balance;
+    }
+    public function addBalance($amount_to_add)
+    {
+        $currenct_balance = $this->balance??0;
+        $new_balance = $currenct_balance+$amount_to_add;
+        $this->balance = $new_balance;
+        $this->save();
+        return $new_balance;
+    }
+
 }

@@ -328,6 +328,8 @@ class ApiController extends Controller
                 'category' => $request->category,
             ]);
 
+            $new_bal = $customer->addBalance($request->amount);
+
             $bankAccount = BankAccount::where('account_number', $request->account_number)->get()->first();
             if (!$bankAccount) {
                 $bankAccount = BankAccount::create([
@@ -341,6 +343,7 @@ class ApiController extends Controller
                     'created_by' => $request->created_by,
                 ]);
             }
+
         }
 
         // // Fetch invoice with associated products
@@ -355,6 +358,7 @@ class ApiController extends Controller
             'InvoicePayment' => $invoicePayment,
             'Transaction' => $transaction,
             'BankAccount' => $bankAccount,
+            'New Balance' => $new_bal,
         ];
 
         return response()->json($data);

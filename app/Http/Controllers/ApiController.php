@@ -271,7 +271,7 @@ class ApiController extends Controller
             return response()->json(['error' => 'No Customer for #: ' . $request->customer_id], 404);
         }
 
-        $ps_category = ProductServiceCategory::where('type', '=', 'income')->get()->first();
+        $ps_category = ProductServiceCategory::where('name', '=', $request->category_name)->get()->first();
 
         // Create the invoice
         $invoice = Invoice::create([
@@ -340,7 +340,7 @@ class ApiController extends Controller
 
             $new_bal = $customer->addBalance($request->amount);
 
-            $bankAccount = BankAccount::where('account_number', $request->account_number)->get()->first();
+            $bankAccount = BankAccount::where('id', $request->account_id)->get()->first();
             if (!$bankAccount) {
                 $bankAccount = BankAccount::create([
                     'holder_name' => $request->holder_name,

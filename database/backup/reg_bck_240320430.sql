@@ -4496,22 +4496,22 @@ CREATE TABLE `product_services` (
 --
 
 INSERT INTO `product_services` (`id`, `name`, `sku`, `sale_price`, `purchase_price`, `quantity`, `tax_id`, `category_id`, `unit_id`, `type`, `sale_chartaccount_id`, `expense_chartaccount_id`, `description`, `pro_image`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Wallet Recharge -Customer', 'WRC', 0.00, 0.00, 0.00, '', 1, 1, 'service', 113, 129, NULL, NULL, 2, '2024-03-19 09:43:38', '2024-03-19 09:43:38'),
-(2, 'Wallet Recharge -Agent', 'WRA', 0.00, 0.00, 0.00, '', 1, 2, 'service', 114, 130, NULL, NULL, 2, '2024-03-19 09:44:40', '2024-03-20 04:40:09'),
-(3, 'Wallet Recharge -Supplier', 'WRS', 0.00, 0.00, 0.00, '', 1, 3, 'service', 115, 131, NULL, NULL, 2, '2024-03-19 09:46:17', '2024-03-20 04:40:24'),
-(4, 'Wallet Recharge -Admin', 'WRAD', 0.00, 0.00, 0.00, '', 1, 4, 'service', 116, 132, NULL, NULL, 2, '2024-03-19 09:47:08', '2024-03-20 04:40:38'),
-(5, 'Recharge Product-Customer', 'RPC', 0.00, 0.00, 0.00, '', 2, 1, 'service', 117, 133, NULL, NULL, 2, '2024-03-19 09:48:06', '2024-03-20 04:41:06'),
-(6, 'Recharge Product-Agent', 'RPA', 0.00, 0.00, 0.00, '', 2, 2, 'service', 118, 134, NULL, NULL, 2, '2024-03-19 09:58:31', '2024-03-20 04:41:18'),
-(7, 'Recharge Product-Supplier', 'RPS', 0.00, 0.00, 0.00, '', 2, 3, 'service', 119, 135, NULL, NULL, 2, '2024-03-19 09:59:30', '2024-03-20 04:41:32'),
-(8, 'Recharge Product-Admin', 'RPAD', 0.00, 0.00, 0.00, '', 2, 4, 'service', 120, 136, NULL, NULL, 2, '2024-03-19 10:01:13', '2024-03-20 04:42:02'),
-(9, 'Wallet Commission-Customer', 'WCC', 0.00, 0.00, 0.00, '', 3, 1, 'service', 121, 137, NULL, NULL, 2, '2024-03-19 10:02:16', '2024-03-20 04:42:24'),
-(10, 'Wallet Commission-Agent', 'WCA', 0.00, 0.00, 0.00, '', 3, 2, 'service', 122, 138, NULL, NULL, 2, '2024-03-19 10:04:41', '2024-03-20 04:42:42'),
-(11, 'Wallet Commission-Supplier', 'WCS', 0.00, 0.00, 0.00, '', 3, 3, 'service', 123, 139, NULL, NULL, 2, '2024-03-19 10:05:47', '2024-03-20 04:43:07'),
-(12, 'Wallet Commission-Admin', 'WCAD', 0.00, 0.00, 0.00, '', 3, 4, 'service', 124, 140, NULL, NULL, 2, '2024-03-19 10:06:43', '2024-03-20 04:43:32'),
-(13, 'Recharge Commission-Customer', 'RCC', 0.00, 0.00, 0.00, '', 4, 1, 'service', 125, 141, NULL, NULL, 2, '2024-03-19 10:08:07', '2024-03-20 04:43:53'),
-(14, 'Recharge Commission-Agent', 'RCA', 0.00, 0.00, 0.00, '', 4, 2, 'service', 126, 142, NULL, NULL, 2, '2024-03-19 10:09:32', '2024-03-20 04:44:11'),
-(15, 'Recharge Commission-Supplier', 'RCS', 0.00, 0.00, 0.00, '', 4, 3, 'service', 127, 143, NULL, NULL, 2, '2024-03-19 10:11:03', '2024-03-20 04:44:27'),
-(16, 'Recharge Commission-Admin', 'RCAD', 0.00, 0.00, 0.00, '', 4, 4, 'service', 128, 144, NULL, NULL, 2, '2024-03-19 10:12:21', '2024-03-20 04:44:44');
+(1, 'Wallet Recharge - Customer', 'WRC', 0.00, 0.00, 0.00, '', 1, 1, 'service', 113, 129, NULL, NULL, 2, '2024-03-19 09:43:38', '2024-03-19 09:43:38'),
+(2, 'Wallet Recharge - Agent', 'WRA', 0.00, 0.00, 0.00, '', 1, 2, 'service', 114, 130, NULL, NULL, 2, '2024-03-19 09:44:40', '2024-03-20 04:40:09'),
+(3, 'Wallet Recharge - Supplier', 'WRS', 0.00, 0.00, 0.00, '', 1, 3, 'service', 115, 131, NULL, NULL, 2, '2024-03-19 09:46:17', '2024-03-20 04:40:24'),
+(4, 'Wallet Recharge - Admin', 'WRAD', 0.00, 0.00, 0.00, '', 1, 4, 'service', 116, 132, NULL, NULL, 2, '2024-03-19 09:47:08', '2024-03-20 04:40:38'),
+(5, 'Recharge Product - Customer', 'RPC', 0.00, 0.00, 0.00, '', 2, 1, 'service', 117, 133, NULL, NULL, 2, '2024-03-19 09:48:06', '2024-03-20 04:41:06'),
+(6, 'Recharge Product - Agent', 'RPA', 0.00, 0.00, 0.00, '', 2, 2, 'service', 118, 134, NULL, NULL, 2, '2024-03-19 09:58:31', '2024-03-20 04:41:18'),
+(7, 'Recharge Product - Supplier', 'RPS', 0.00, 0.00, 0.00, '', 2, 3, 'service', 119, 135, NULL, NULL, 2, '2024-03-19 09:59:30', '2024-03-20 04:41:32'),
+(8, 'Recharge Product - Admin', 'RPAD', 0.00, 0.00, 0.00, '', 2, 4, 'service', 120, 136, NULL, NULL, 2, '2024-03-19 10:01:13', '2024-03-20 04:42:02'),
+(9, 'Wallet Commission - Customer', 'WCC', 0.00, 0.00, 0.00, '', 3, 1, 'service', 121, 137, NULL, NULL, 2, '2024-03-19 10:02:16', '2024-03-20 04:42:24'),
+(10, 'Wallet Commission - Agent', 'WCA', 0.00, 0.00, 0.00, '', 3, 2, 'service', 122, 138, NULL, NULL, 2, '2024-03-19 10:04:41', '2024-03-20 04:42:42'),
+(11, 'Wallet Commission - Supplier', 'WCS', 0.00, 0.00, 0.00, '', 3, 3, 'service', 123, 139, NULL, NULL, 2, '2024-03-19 10:05:47', '2024-03-20 04:43:07'),
+(12, 'Wallet Commission - Admin', 'WCAD', 0.00, 0.00, 0.00, '', 3, 4, 'service', 124, 140, NULL, NULL, 2, '2024-03-19 10:06:43', '2024-03-20 04:43:32'),
+(13, 'Recharge Commission - Customer', 'RCC', 0.00, 0.00, 0.00, '', 4, 1, 'service', 125, 141, NULL, NULL, 2, '2024-03-19 10:08:07', '2024-03-20 04:43:53'),
+(14, 'Recharge Commission - Agent', 'RCA', 0.00, 0.00, 0.00, '', 4, 2, 'service', 126, 142, NULL, NULL, 2, '2024-03-19 10:09:32', '2024-03-20 04:44:11'),
+(15, 'Recharge Commission - Supplier', 'RCS', 0.00, 0.00, 0.00, '', 4, 3, 'service', 127, 143, NULL, NULL, 2, '2024-03-19 10:11:03', '2024-03-20 04:44:27'),
+(16, 'Recharge Commission - Admin', 'RCAD', 0.00, 0.00, 0.00, '', 4, 4, 'service', 128, 144, NULL, NULL, 2, '2024-03-19 10:12:21', '2024-03-20 04:44:44');
 
 -- --------------------------------------------------------
 

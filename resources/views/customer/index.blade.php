@@ -52,7 +52,8 @@ $profile=\App\Models\Utility::get_file('uploads/avatar/');
                             <tr>
                                 <th>#</th>
                                 <th> {{__('Name')}}</th>
-                                <th> {{__('Contact')}}</th>
+                                <th> {{__('VPID')}}</th> 
+                                <th> {{__('Contact')}}</th> 
                                 <th> {{__('Email')}}</th>
                                 <th> {{__('Balance')}}</th>
                                 <th>{{__('Action')}}</th>
@@ -73,6 +74,7 @@ $profile=\App\Models\Utility::get_file('uploads/avatar/');
                                         @endcan
                                     </td>
                                     <td class="font-style">{{$customer['name']}}</td>
+                                    <td>{{$customer['vivape_id']}}</td>
                                     <td>{{$customer['contact']}}</td>
                                     <td>{{$customer['email']}}</td>
                                     <td>{{\Auth::user()->priceFormat($customer['balance'])}}</td>

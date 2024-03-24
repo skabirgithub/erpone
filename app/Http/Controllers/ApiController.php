@@ -200,37 +200,43 @@ class ApiController extends Controller
         if ($request->api_key!='#chillLife') {
             return response()->json(['error' => 'Customer not found.'], 404);
         }
-        $ctmr = Customer::create([
-            'customer_id' => $request->customer_id,
-            'vivape_id' => $request->vivape_id,
-            'vivape_user_id' => $request->vivape_user_id,
-            'identity' => $request->identity,
-            'identity_attachment' => $request->identity_attachment,
-            'name' => $request->name,
-            'balance' => $request->balance,
-            'email' => $request->email,
-            'password' => $request->password,
-            'contact' => $request->contact,
-            'avatar' => $request->avatar,
-            'is_active' => $request->is_active,
-            'created_by' => $request->created_by,
-            'email_verified_at' => date('Y-m-d'),
-            'billing_name' => $request->name,
-            'billing_country' => $request->billing_country,
-            'billing_state' => $request->billing_state,
-            'billing_city' => $request->billing_city,
-            'billing_phone' => $request->billing_phone,
-            'billing_zip' => $request->billing_zip,
-            'billing_address' => $request->billing_address,
-            'shipping_name' => $request->shipping_name,
-            'shipping_country' => $request->shipping_country,
-            'shipping_state' => $request->shipping_state,
-            'shipping_city' => $request->shipping_city,
-            'shipping_phone' => $request->shipping_phone,
-            'shipping_zip' => $request->shipping_zip,
-            'shipping_address' => $request->shipping_address,
+        $customer = Customer::where('customer_id',$request->customer_id)->get()->first();
+        if($customer){
+            $ctmr = $customer;
+        }else{
+            $ctmr = Customer::create([
+                'customer_id' => $request->customer_id,
+                'vivape_id' => $request->vivape_id,
+                'vivape_user_id' => $request->vivape_user_id,
+                'identity' => $request->identity,
+                'identity_attachment' => $request->identity_attachment,
+                'name' => $request->name,
+                'balance' => $request->balance,
+                'email' => $request->email,
+                'password' => $request->password,
+                'contact' => $request->contact,
+                'avatar' => $request->avatar,
+                'is_active' => $request->is_active,
+                'created_by' => $request->created_by,
+                'email_verified_at' => date('Y-m-d'),
+                'billing_name' => $request->name,
+                'billing_country' => $request->billing_country,
+                'billing_state' => $request->billing_state,
+                'billing_city' => $request->billing_city,
+                'billing_phone' => $request->billing_phone,
+                'billing_zip' => $request->billing_zip,
+                'billing_address' => $request->billing_address,
+                'shipping_name' => $request->shipping_name,
+                'shipping_country' => $request->shipping_country,
+                'shipping_state' => $request->shipping_state,
+                'shipping_city' => $request->shipping_city,
+                'shipping_phone' => $request->shipping_phone,
+                'shipping_zip' => $request->shipping_zip,
+                'shipping_address' => $request->shipping_address,
 
-        ]);
+            ]);
+        }
+
 
         $data = [
             'message' => 'Successfully created customer',

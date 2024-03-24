@@ -197,6 +197,20 @@ class ApiController extends Controller
     }
     public function storecustomer(Request $request)
     {
+        // Define the rate limit parameters
+        $key = $request->ip(); // You can use IP address for rate limiting
+        $maxAttempts = 10; // Maximum allowed attempts
+        $decayMinutes = 1; // Time frame in minutes
+
+        // Check if the request exceeds the rate limit
+        if (RateLimiter::tooManyAttempts($key, $maxAttempts)) {
+            // Return a response indicating too many requests
+            return response()->json(['message' => 'Too Many Requests'], Response::HTTP_TOO_MANY_REQUESTS);
+        }
+
+        // Increment the rate limiter
+        RateLimiter::hit($key, $decayMinutes);
+
         if ($request->api_key!='#chillLife') {
             return response()->json(['error' => 'Customer not found.'], 404);
         }
@@ -258,6 +272,20 @@ class ApiController extends Controller
     }
     public function storeInvoice(Request $request)
     {
+
+        // Define the rate limit parameters
+        $key = $request->ip(); // You can use IP address for rate limiting
+        $maxAttempts = 10; // Maximum allowed attempts
+        $decayMinutes = 1; // Time frame in minutes
+
+        // Check if the request exceeds the rate limit
+        if (RateLimiter::tooManyAttempts($key, $maxAttempts)) {
+            // Return a response indicating too many requests
+            return response()->json(['message' => 'Too Many Requests'], Response::HTTP_TOO_MANY_REQUESTS);
+        }
+
+        // Increment the rate limiter
+        RateLimiter::hit($key, $decayMinutes);
 
         if ($request->api_key!='#chillLife') {
             return response()->json(['error' => 'Product not found.'], 404);

@@ -339,7 +339,7 @@ class ApiController extends Controller
                     'holder_name' => $request->holder_name,
                     'bank_name' => $request->bank_name,
                     'account_number' => $request->account_number,
-                    'chart_account_id' => $request->chart_account_id,
+                    'chart_account_id' => $product->sale_chartaccount_id,
                     'opening_balance' => $request->amount,
                     'contact_number' => $request->contact_number,
                     'bank_address' => $request->bank_address,

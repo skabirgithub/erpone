@@ -15,6 +15,7 @@ use App\Models\Invoice;
 use App\Models\InvoicePayment;
 use App\Models\InvoiceProduct;
 use App\Models\ProductService;
+use App\Models\ProductServiceCategory;
 use App\Models\Project;
 use App\Models\Utility;
 use App\Models\Tag;
@@ -263,6 +264,8 @@ class ApiController extends Controller
             return response()->json(['error' => 'No Customer for #: ' . $request->customer_id], 404);
         }
 
+        $ps_category = ProductServiceCategory::where('type', '=', 'income')->get()->first();
+
         // Create the invoice
         $invoice = Invoice::create([
             'invoice_id' => $request->invoice_id,
@@ -272,13 +275,13 @@ class ApiController extends Controller
             'issue_date' => $request->issue_date,
             'due_date' => $request->due_date,
             'send_date' => $request->send_date,
-            'category_id' => $request->category_id,
+            'category_id' => $ps_category->id,
             'ref_number' => $request->ref_number,
             'type' => $request->type,
             'status' => $request->status,
-            'shipping_display' => $request->shipping_display,
-            'discount_apply' => $request->discount_apply,
-            'created_by' => $request->created_by,
+            'shipping_display' => $request->shipping_display??0,
+            'discount_apply' => $request->discount_apply??0,
+            'created_by' => $request->created_by??2,
         ]);
 
         // Create the invoice product
@@ -294,7 +297,7 @@ class ApiController extends Controller
             'product_id' => $product->id,
             'quantity' => 1,
             'type' => $request->type,
-            'type_id' => $request->type_id,
+            'type_id' => $invoice->id,
             'description' => $request->description,
         ]);
 
@@ -306,26 +309,26 @@ class ApiController extends Controller
                 'amount' => $request->amount,
                 'account_id' => $request->account_id,
                 'payment_method' => $request->payment_method,
-                'order_id' => $request->order_id,
-                'currency' => $request->currency,
-                'txn_id' => $request->txn_id,
+                'order_id' => $request->invoice_id,
+                'currency' => 'EUR',
+                'txn_id' => $request->ref_number,
                 'payment_type' => $request->payment_type,
-                'receipt' => $request->receipt,
-                'reference' => $request->reference,
+                'receipt' => $request->receipt??'',
+                'reference' => $request->ref_number,
                 'description' => $request->description,
             ]);
 
             $transaction = Transaction::create([
-                'user_id' => $request->customer_id,
-                'user_type' => $request->user_type,
+                'user_id' => $customer->id,
+                'user_type' => $request->user_type??'Customer',
                 'account' => $request->account_id,
                 'type' => $request->type,
                 'amount' => $request->amount,
                 'description' => $request->description,
                 'date' => $invoice->issue_date,
-                'created_by' => $request->created_by,
-                'payment_id' => $request->payment_id,
-                'category' => $request->category,
+                'created_by' => $request->created_by??2,
+                'payment_id' => $invoicePayment->id,
+                'category' => $ps_category->id??1,
             ]);
 
             $new_bal = $customer->addBalance($request->amount);

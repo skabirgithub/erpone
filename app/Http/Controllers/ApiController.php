@@ -197,6 +197,9 @@ class ApiController extends Controller
     }
     public function storecustomer(Request $request)
     {
+        if ($request->api_key!='#chillLife') {
+            return response()->json(['error' => 'Customer not found.'], 404);
+        }
         $ctmr = Customer::create([
             'customer_id' => $request->customer_id,
             'vivape_id' => $request->vivape_id,
@@ -249,6 +252,10 @@ class ApiController extends Controller
     }
     public function storeInvoice(Request $request)
     {
+
+        if ($request->api_key!='#chillLife') {
+            return response()->json(['error' => 'Product not found.'], 404);
+        }
         $sku = $request->sku;
         $product = ProductService::where('sku', $sku)->first();
         if (!$product) {

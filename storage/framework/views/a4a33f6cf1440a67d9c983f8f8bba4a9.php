@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('page-title'); ?>
     <?php echo e(__('Manage Invoices')); ?>
 
@@ -114,7 +113,8 @@
 
                                 <th><?php echo e(__('Issue Date')); ?></th>
                                 <th><?php echo e(__('Due Date')); ?></th>
-                                <th><?php echo e(__('Due Amount')); ?></th>
+                                
+                                <th><?php echo e(__('Total Amount')); ?></th>
                                 <th><?php echo e(__('Status')); ?></th>
                                 <?php if(Gate::check('edit invoice') || Gate::check('delete invoice') || Gate::check('show invoice')): ?>
                                     <th><?php echo e(__('Action')); ?></th>
@@ -139,7 +139,8 @@
 
                                         <?php endif; ?>
                                     </td>
-                                    <td><?php echo e(\Auth::user()->priceFormat($invoice->getDue())); ?></td>
+                                    
+                                    <td><?php echo e(\Auth::user()->priceFormat($invoice->getTotal())); ?></td>
                                     <td>
                                         <?php if($invoice->status == 0): ?>
                                             <span

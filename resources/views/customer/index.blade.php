@@ -52,8 +52,8 @@ $profile=\App\Models\Utility::get_file('uploads/avatar/');
                             <tr>
                                 <th>#</th>
                                 <th> {{__('Name')}}</th>
-                                <th> {{__('VPID')}}</th> 
-                                <th> {{__('Contact')}}</th> 
+                                <th> {{__('VPID')}}</th>
+                                <th> {{__('Contact')}}</th>
                                 <th> {{__('Email')}}</th>
                                 <th> {{__('Balance')}}</th>
                                 <th>{{__('Action')}}</th>

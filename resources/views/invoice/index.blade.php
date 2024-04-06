@@ -105,7 +105,8 @@
 {{--                                @endif--}}
                                 <th>{{ __('Issue Date') }}</th>
                                 <th>{{ __('Due Date') }}</th>
-                                <th>{{ __('Due Amount') }}</th>
+                                {{-- <th>{{ __('Due Amount') }}</th> --}}
+                                <th>{{ __('Total Amount') }}</th>
                                 <th>{{ __('Status') }}</th>
                                 @if (Gate::check('edit invoice') || Gate::check('delete invoice') || Gate::check('show invoice'))
                                     <th>{{ __('Action') }}</th>
@@ -134,7 +135,8 @@
                                             {{ \Auth::user()->dateFormat($invoice->due_date) }}
                                         @endif
                                     </td>
-                                    <td>{{ \Auth::user()->priceFormat($invoice->getDue()) }}</td>
+                                    {{-- <td>{{ \Auth::user()->priceFormat($invoice->getDue()) }}</td> --}}
+                                    <td>{{ \Auth::user()->priceFormat($invoice->getTotal()) }}</td>
                                     <td>
                                         @if ($invoice->status == 0)
                                             <span

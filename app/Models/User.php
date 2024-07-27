@@ -3370,10 +3370,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public static function userDefaultWarehouse(){
         warehouse::create(
             [
-                'name' => 'North Warehouse',
-                'address' => '723 N. Tillamook Street Portland, OR Portland, United States',
-                'city' => 'Portland',
-                'city_zip' => 97227,
+                'name' => 'Default Warehouse',
+                'address' => 'Gulshan-2, Dhaka, Bangladesh',
+                'city' => 'Dhaka',
+                'city_zip' => 1200,
                 'created_by' => 2,
             ]
         );
@@ -3383,10 +3383,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userWarehouseRegister($user_id){
         warehouse::create(
             [
-                'name' => 'North Warehouse',
-                'address' => '723 N. Tillamook Street Portland, OR Portland, United States',
-                'city' => 'Portland',
-                'city_zip' => 97227,
+                'name' => 'Default Warehouse',
+                'address' => 'Gulshan-2, Dhaka, Bangladesh',
+                'city' => 'Dhaka',
+                'city_zip' => 1200,
                 'created_by' => $user_id,
             ]
         );
@@ -3398,11 +3398,11 @@ class User extends Authenticatable implements MustVerifyEmail
         BankAccount::create(
             [
                 'holder_name' => 'cash',
-                'bank_name' => '',
-                'account_number' => '-',
+                'bank_name' => 'MHTE',
+                'account_number' => '123213',
                 'opening_balance' => '0.00',
-                'contact_number' => '-',
-                'bank_address' => '-',
+                'contact_number' => '01750726094',
+                'bank_address' => 'Dhaka, Bangladesh',
                 'created_by' => $user_id,
             ]
         );

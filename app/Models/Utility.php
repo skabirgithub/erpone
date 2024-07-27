@@ -974,6 +974,17 @@ class Utility extends Model
             '8' => 'Engineering and Maintenance',
             '9' => 'Transport and Garage',
         ),
+        "site expenses" => array(
+            '1' => 'Costs of Living',
+            '2' => 'Maintenance and Repair',
+            '3' => 'Engineering and HRM',
+            '4' => 'Site Office Expense',
+            '5' => 'Travel and Allowances',
+            '6' => 'Site Advance',
+            '7' => 'Site Expense',
+            '8' => 'Site Income',
+            '9' => 'Foods and Snacks',
+        ),
 
 
 

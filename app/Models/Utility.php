@@ -985,9 +985,6 @@ class Utility extends Model
             '8' => 'Site Income',
             '9' => 'Foods and Snacks',
         ),
-
-
-
     );
 
     public static function chartOfAccountTypeData($company_id)
@@ -2628,26 +2625,126 @@ class Utility extends Model
         ],
         // General and Administrative expenses
         // expense
-        // construction
+        // construction expenses
         [
             'code' => '6101',
-            'name' => 'Concrete Purchase',
-            'type' => 'Constructions',
+            'name' => 'Goods Purchase',
+            'type' => 'Construction Expenses',
             'sub_type' => 'Costs of Goods Purchase',
         ],
         [
             'code' => '6102',
-            'name' => 'Bricks Purchase',
-            'type' => 'Constructions',
+            'name' => 'Advance for Purchase',
+            'type' => 'Construction Expenses',
             'sub_type' => 'Costs of Goods Purchase',
         ],
         [
             'code' => '6103',
-            'name' => 'Bricks Purchase',
-            'type' => 'Constructions',
+            'name' => 'Dues for Purchase',
+            'type' => 'Construction Expenses',
             'sub_type' => 'Costs of Goods Purchase',
         ],
-        // construction
+        [
+            'code' => '6104',
+            'name' => 'Payment for Purchase',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Costs of Goods Purchase',
+        ],
+
+        [
+            'code' => '6201',
+            'name' => 'Construction Maintenance',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Maintenance and Repair',
+        ],
+        [
+            'code' => '6202',
+            'name' => 'Construction Repair',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Maintenance and Repair',
+        ],
+
+        [
+            'code' => '6301',
+            'name' => 'Construction Engineering',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Engineering and HRM',
+        ],
+        [
+            'code' => '6302',
+            'name' => 'Construction HRM',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Engineering and HRM',
+        ],
+
+        [
+            'code' => '6401',
+            'name' => 'Head Office Foods',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Head Office Expense',
+        ],
+        [
+            'code' => '6402',
+            'name' => 'Head Office Snacks',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Head Office Expense',
+        ],
+        [
+            'code' => '6403',
+            'name' => 'Head Office Stationary',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Head Office Expense',
+        ],
+        [
+            'code' => '6404',
+            'name' => 'Head Office Internet',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Head Office Expense',
+        ],
+        [
+            'code' => '6405',
+            'name' => 'Head Office Paper',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Head Office Expense',
+        ],
+        [
+            'code' => '6406',
+            'name' => 'Head Office Service',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Head Office Expense',
+        ],
+        [
+            'code' => '6407',
+            'name' => 'Head Office Maintenance',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Head Office Expense',
+        ],
+
+        [
+            'code' => '6501',
+            'name' => 'Travel Expense',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Travel and Allowance',
+        ],
+        [
+            'code' => '6502',
+            'name' => 'TA-DA',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Travel and Allowance',
+        ],
+        [
+            'code' => '6503',
+            'name' => 'Transportation',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Travel and Allowance',
+        ],
+        [
+            'code' => '6504',
+            'name' => 'Advance',
+            'type' => 'Construction Expenses',
+            'sub_type' => 'Travel and Allowance',
+        ],
+        // construction expenses
 
     );
 

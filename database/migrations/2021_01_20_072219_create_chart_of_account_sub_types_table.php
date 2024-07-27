@@ -18,7 +18,7 @@ class CreateChartOfAccountSubTypesTable extends Migration
             $table->id();
             $table->string('name')->default();
             $table->integer('type')->default(0);
-            $table->integer('created_by')->default(0);
+            $table->integer('created_by')->default(2);
             $table->timestamps();
         }
         );

@@ -25,14 +25,14 @@ class Utility extends Model
     private static $taxRateData = NULL;
     private static $taxData = NULL;
     private static $taxes = NULL;
-    
+
     // public static function settings(){
     //     if(self::$settings == null){
     //         self::$settings = self::fetchSetting();
     //     }
     //     return self::$settings;
     // }
-    
+
     private static $languageSetting = NULL;
 
     public static function getSetting()
@@ -73,7 +73,7 @@ class Utility extends Model
         }
         else
         {
-            $data =Utility::getSetting();   
+            $data =Utility::getSetting();
         }
 
         $settings = [
@@ -264,7 +264,7 @@ class Utility extends Model
                 ],
             ]
         );
-        
+
         return $settings;
     }
 
@@ -688,7 +688,7 @@ class Utility extends Model
             }
             self::$taxsData=$taxes;
         }
-        
+
         return self::$taxsData;
     }
     public static function taxRate($taxRate, $price, $quantity,$discount=0)
@@ -898,6 +898,7 @@ class Utility extends Model
         'income' => 'Income',
         'costs of goods sold' => 'Costs of Goods Sold',
         'expenses' => 'Expenses',
+        'costs of goods purchase' => 'Costs of Goods Purchase',
 
     ];
 
@@ -907,19 +908,24 @@ class Utility extends Model
             '1' => 'Current Asset',
             '2' => 'Inventory Asset',
             '3' => 'Non-current Asset',
+            '4' => 'Machinery Asset',
+            '5' => 'Transport Asset',
         ),
         "liabilities" => array(
             '1' => 'Current Liabilities',
             '2' => 'Long Term Liabilities',
             '3' => 'Share Capital',
             '4' => 'Retained Earnings',
+            '5' => 'Bank Loan',
         ),
         "equity" => array(
             '1' => 'Owners Equity',
+            '2' => 'Investors Equity',
         ),
         "income" => array(
             '1' => 'Sales Revenue',
             '2' => 'Other Revenue',
+            '3' => 'Project Revenue',
         ),
         "costs of goods sold" => array(
             '1' => 'Costs of Goods Sold',
@@ -927,6 +933,12 @@ class Utility extends Model
         "expenses" => array(
             '1' => 'Payroll Expenses',
             '2' => 'General and Administrative expenses',
+        ),
+        "costs of goods purchase" => array(
+            '1' => 'Costs of Goods Purchase',
+            '2' => 'Construction Materials Purchase',
+            '3' => 'Construction Machinery Purchase',
+            '4' => 'Construction Vehicles Purchase',
         ),
 
 
@@ -963,243 +975,330 @@ class Utility extends Model
     public static $chartOfAccount = array(
 
         [
-            'code' => '1060',
+            'code' => '1101',
             'name' => 'Checking Account',
             'type' => 1,
             'sub_type' => 1,
         ],
         [
-            'code' => '1065',
+            'code' => '1102',
             'name' => 'Petty Cash',
             'type' => 1,
             'sub_type' => 1,
         ],
         [
-            'code' => '1200',
+            'code' => '1103',
             'name' => 'Account Receivables',
             'type' => 1,
             'sub_type' => 1,
         ],
         [
-            'code' => '1205',
+            'code' => '1104',
             'name' => 'Allowance for doubtful accounts',
             'type' => 1,
             'sub_type' => 1,
         ],
         [
-            'code' => '1510',
+            'code' => '1201',
             'name' => 'Inventory',
             'type' => 1,
             'sub_type' => 2,
         ],
         [
-            'code' => '1520',
+            'code' => '1202',
             'name' => 'Stock of Raw Materials',
             'type' => 1,
             'sub_type' => 2,
         ],
         [
-            'code' => '1530',
+            'code' => '1203',
             'name' => 'Stock of Work In Progress',
             'type' => 1,
             'sub_type' => 2,
         ],
         [
-            'code' => '1540',
+            'code' => '1204',
             'name' => 'Stock of Finished Goods',
             'type' => 1,
             'sub_type' => 2,
         ],
         [
-            'code' => '1550',
+            'code' => '1205',
             'name' => 'Goods Received Clearing account',
             'type' => 1,
             'sub_type' => 2,
         ],
         [
-            'code' => '1810',
+            'code' => '1301',
             'name' => 'Land and Buildings',
             'type' => 1,
             'sub_type' => 3,
         ],
         [
-            'code' => '1820',
+            'code' => '1302',
             'name' => 'Office Furniture and Equipement',
             'type' => 1,
             'sub_type' => 3,
         ],
         [
-            'code' => '1825',
+            'code' => '1303',
             'name' => 'Accum.depreciation-Furn. and Equip',
             'type' => 1,
             'sub_type' => 3,
         ],
         [
-            'code' => '1840',
+            'code' => '1304',
             'name' => 'Motor Vehicle',
             'type' => 1,
             'sub_type' => 3,
         ],
         [
-            'code' => '1845',
+            'code' => '1305',
             'name' => 'Accum.depreciation-Motor Vehicle',
             'type' => 1,
             'sub_type' => 3,
         ],
         [
-            'code' => '2100',
+            'code' => '1401',
+            'name' => 'Earthmoving and Excavation Machinery',
+            'type' => 1,
+            'sub_type' => 4,
+        ],
+        [
+            'code' => '1402',
+            'name' => 'Material Handling Machinery',
+            'type' => 1,
+            'sub_type' => 4,
+        ],
+        [
+            'code' => '1403',
+            'name' => 'Compaction Machinery',
+            'type' => 1,
+            'sub_type' => 4,
+        ],
+        [
+            'code' => '1404',
+            'name' => 'Concrete Work Machinery',
+            'type' => 1,
+            'sub_type' => 4,
+        ],
+        [
+            'code' => '1405',
+            'name' => 'Road Construction Machinery',
+            'type' => 1,
+            'sub_type' => 4,
+        ],
+        [
+            'code' => '1406',
+            'name' => 'Demolition Machinery',
+            'type' => 1,
+            'sub_type' => 4,
+        ],
+        [
+            'code' => '1407',
+            'name' => 'Other Equipment Machinery',
+            'type' => 1,
+            'sub_type' => 4,
+        ],
+
+
+        [
+            'code' => '1501',
+            'name' => 'Earthmoving and Transport',
+            'type' => 1,
+            'sub_type' => 5,
+        ],
+        [
+            'code' => '1502',
+            'name' => 'Excavation and Material Handling Transport',
+            'type' => 1,
+            'sub_type' => 5,
+        ],
+        [
+            'code' => '1503',
+            'name' => 'Compaction and Paving Transport',
+            'type' => 1,
+            'sub_type' => 5,
+        ],
+        [
+            'code' => '1504',
+            'name' => 'Concrete Work Transport',
+            'type' => 1,
+            'sub_type' => 5,
+        ],
+        [
+            'code' => '1505',
+            'name' => 'Support Vehicles',
+            'type' => 1,
+            'sub_type' => 5,
+        ],
+        [
+            'code' => '1506',
+            'name' => 'Specialized Vehicles',
+            'type' => 1,
+            'sub_type' => 5,
+        ],
+
+
+
+
+
+        [
+            'code' => '2401',
             'name' => 'Account Payable',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2105',
+            'code' => '2402',
             'name' => 'Deferred Income',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2110',
+            'code' => '2403',
             'name' => 'Accrued Income Tax-Central',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2120',
+            'code' => '2404',
             'name' => 'Income Tax Payable',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2130',
+            'code' => '2405',
             'name' => 'Accrued Franchise Tax',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2140',
+            'code' => '2406',
             'name' => 'Vat Provision',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2145',
+            'code' => '2407',
             'name' => 'Purchase Tax',
             'type' => 2,
             'sub_type' => 4,
         ],[
-            'code' => '2150',
+            'code' => '2408',
             'name' => 'VAT Pay / Refund',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2151',
+            'code' => '2409',
             'name' => 'Zero Rated',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2152',
+            'code' => '2410',
             'name' => 'Capital import',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2153',
+            'code' => '2411',
             'name' => 'Standard Import',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2154',
+            'code' => '2412',
             'name' => 'Capital Standard',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2155',
+            'code' => '2413',
             'name' => 'Vat Exempt',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2160',
+            'code' => '2414',
             'name' => 'Accrued Use Tax Payable',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2210',
+            'code' => '2415',
             'name' => 'Accrued Wages',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2220',
+            'code' => '2416',
             'name' => 'Accrued Comp Time',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2230',
+            'code' => '2417',
             'name' => 'Accrued Holiday Pay',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2240',
+            'code' => '2418',
             'name' => 'Accrued Vacation Pay',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2310',
+            'code' => '2419',
             'name' => 'Accr. Benefits - Central Provident Fund',
             'type' => 2,
             'sub_type' => 4,
         ],[
-            'code' => '2320',
+            'code' => '2420',
             'name' => 'Accr. Benefits - Stock Purchase',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2330',
+            'code' => '2421',
             'name' => 'Accr. Benefits - Med, Den',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2340',
+            'code' => '2422',
             'name' => 'Accr. Benefits - Payroll Taxes',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2350',
+            'code' => '2423',
             'name' => 'Accr. Benefits - Credit Union',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2360',
+            'code' => '2424',
             'name' => 'Accr. Benefits - Savings Bond',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2370',
+            'code' => '2425',
             'name' => 'Accr. Benefits - Group Insurance',
             'type' => 2,
             'sub_type' => 4,
         ],
         [
-            'code' => '2380',
+            'code' => '2426',
             'name' => 'Accr. Benefits - Charity Cont.',
             'type' => 2,
             'sub_type' => 4,
         ],
+
+        
         [
             'code' => '2620',
             'name' => 'Bank Loans',
@@ -2358,7 +2457,7 @@ class Utility extends Model
 
         public static function sendEmailTemplate($emailTemplate, $mailTo, $obj)
         {
-            $usr = Auth::user();            
+            $usr = Auth::user();
             //Remove Current Login user Email don't send mail to them
             // unset($mailTo[$usr->id]);
             $mailTo = array_values($mailTo);
@@ -2455,7 +2554,7 @@ class Utility extends Model
 
         public static function sendUserEmailTemplate($emailTemplate, $mailTo, $obj)
         {
-            $usr = Auth::user();            
+            $usr = Auth::user();
             //Remove Current Login user Email don't send mail to them
             // unset($mailTo[$usr->id]);
             $mailTo = array_values($mailTo);
@@ -3564,7 +3663,7 @@ class Utility extends Model
     {
 
         $data     = \DB::table('admin_payment_settings');
-        
+
         $settings = [];
         if(\Auth::check())
         {
@@ -4522,7 +4621,7 @@ class Utility extends Model
             {
                 $rating = json_decode($indicator->rating, true);
                 $starsum = array_sum($rating);
-    
+
                 $overallrating = $starsum / $competencyCount;
             } else {
                 $overallrating = 0;
@@ -4961,7 +5060,7 @@ class Utility extends Model
             $revenueAmount->where('date', '>=', $start);
             $revenueAmount->where('date', '<=', $end);
         }
-        
+
         $revenueAmount= $revenueAmount->sum('amount');
 
         $bill_product = ProductService::where('expense_chartaccount_id',$account_id)->get()->pluck('id');
@@ -4983,7 +5082,7 @@ class Utility extends Model
         }
         $billAmount= $billAmount->sum('price');
 
-        
+
         $billPaymentAmount= BillPayment::whereIn('account_id',$getAccount);
         if(!empty($start_date) && !empty($end_date))
         {
@@ -5014,7 +5113,7 @@ class Utility extends Model
         $journalDebit = $journalDebit->sum('debit');
 
         $balance   =  ($invoiceAmount + $invoicePaymentAmount + $revenueAmount  + $journalCredit) - ($journalDebit + $billProductAmount + $billAmount + $billPaymentAmount + $paymentAmount);
-        
+
         return $balance;
     }
 
@@ -5237,7 +5336,7 @@ class Utility extends Model
         $journalItem = JournalItem::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name', \DB::raw('sum(debit) as totalDebit'), \DB::raw('sum(credit) as totalCredit'));
         $journalItem->leftjoin('journal_entries', 'journal_entries.id', 'journal_items.journal');
         $journalItem->leftjoin('chart_of_accounts', 'journal_items.account', 'chart_of_accounts.id');
-        $journalItem->where('chart_of_accounts.type',$account_id);  
+        $journalItem->where('chart_of_accounts.type',$account_id);
         $journalItem->where('chart_of_accounts.created_by',\Auth::user()->creatorId());
         $journalItem->where('journal_items.created_at', '>=', $start);
         $journalItem->where('journal_items.created_at', '<=', $end);
@@ -5284,7 +5383,7 @@ class Utility extends Model
         $bill->where('bill_products.created_at', '<=', $end);
         $bill->groupBy('product_services.expense_chartaccount_id');
         $bill = $bill->get()->toArray();
-        
+
         $billAccount = BillAccount::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name' , \DB::raw('sum(price) as totalDebit'), \DB::raw('0 as totalCredit'));
         $billAccount->leftjoin('chart_of_accounts', 'bill_accounts.chart_account_id', 'chart_of_accounts.id');
         $billAccount->where('chart_of_accounts.type',$account_id);
@@ -5353,7 +5452,7 @@ class Utility extends Model
                 'mail.from.name'    => $settings['mail_from_name'],
                 ]
             );
-        
+
         return $smtpDetail;
     }
 

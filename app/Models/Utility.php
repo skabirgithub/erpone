@@ -946,7 +946,7 @@ class Utility extends Model
         ),
         "construction materials" => array(
             '1' => 'Structural Materials',
-            '2' => 'Finishing Materials',
+            '2' => 'Pavement Materials',
             '3' => 'Other Materials',
             '4' => 'Additional Considerations',
             '5' => 'Maintenance and Repair',
@@ -2746,8 +2746,134 @@ class Utility extends Model
         ],
         // construction expenses
 
-        // construction expenses
-        // construction expenses
+        // construction materials
+        [
+            'code' => '7101',
+            'name' => 'Soil',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+        [
+            'code' => '7102',
+            'name' => 'Steel',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+        [
+            'code' => '7103',
+            'name' => 'Wood',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+        [
+            'code' => '7104',
+            'name' => 'Bricks',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+        [
+            'code' => '7105',
+            'name' => 'Blocks',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+        [
+            'code' => '7106',
+            'name' => 'Crushed stone',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+        [
+            'code' => '7107',
+            'name' => 'Gravel',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+        [
+            'code' => '7108',
+            'name' => 'Sand',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Structural Materials',
+        ],
+
+
+        [
+            'code' => '7201',
+            'name' => 'Asphalt',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Pavement Materials',
+        ],
+        [
+            'code' => '7202',
+            'name' => 'Concrete',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Pavement Materials',
+        ],
+        [
+            'code' => '7203',
+            'name' => 'Recycled Materials',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Pavement Materials',
+        ],
+
+        [
+            'code' => '7301',
+            'name' => 'Bitumen',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Other Materials',
+        ],
+        [
+            'code' => '7302',
+            'name' => 'Cement',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Other Materials',
+        ],
+        [
+            'code' => '7303',
+            'name' => 'Water',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Other Materials',
+        ],
+        [
+            'code' => '7304',
+            'name' => 'Admixtures',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Other Materials',
+        ],
+        [
+            'code' => '7305',
+            'name' => 'Geotextiles',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Other Materials',
+        ],
+        [
+            'code' => '7306',
+            'name' => 'Reinforcing Steel',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Other Materials',
+        ],
+        [
+            'code' => '7307',
+            'name' => 'Curbs and Gutters',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Other Materials',
+        ],
+
+        [
+            'code' => '7401',
+            'name' => 'Bamboo',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Additional Considerations',
+        ],
+        [
+            'code' => '7402',
+            'name' => 'Steel Sheet',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Additional Considerations',
+        ],
+
+
+        // construction materials
 
     );
 

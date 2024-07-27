@@ -2138,27 +2138,27 @@ class Utility extends Model
         }
     }
 
-    public static function chartOfAccountData($user)
-    {
-        $chartOfAccounts = Self::$chartOfAccount1;
-        foreach ($chartOfAccounts as $account) {
-            $type = ChartOfAccountType::where('created_by', $user)->where('name', $account['type'])->first();
-            $sub_type = ChartOfAccountSubType::where('created_by', $user)->where('type', $type->id)->where('name', $account['sub_type'])->first();
-            if($sub_type){
-                ChartOfAccount::create(
-                    [
-                        'code' => $account['code'],
-                        'name' => $account['name'],
-                        'type' => $type->id,
-                        'sub_type' => $sub_type->id,
-                        'is_enabled' => 1,
-                        'created_by' => $user,
-                    ]
-                );
-            }
+    // public static function chartOfAccountData($user)
+    // {
+    //     $chartOfAccounts = Self::$chartOfAccount1;
+    //     foreach ($chartOfAccounts as $account) {
+    //         $type = ChartOfAccountType::where('created_by', $user)->where('name', $account['type'])->first();
+    //         $sub_type = ChartOfAccountSubType::where('created_by', $user)->where('type', $type->id)->where('name', $account['sub_type'])->first();
+    //         if($sub_type){
+    //             ChartOfAccount::create(
+    //                 [
+    //                     'code' => $account['code'],
+    //                     'name' => $account['name'],
+    //                     'type' => $type->id,
+    //                     'sub_type' => $sub_type->id,
+    //                     'is_enabled' => 1,
+    //                     'created_by' => $user,
+    //                 ]
+    //             );
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
     public static function sendEmailTemplate($emailTemplate, $mailTo, $obj)
     {

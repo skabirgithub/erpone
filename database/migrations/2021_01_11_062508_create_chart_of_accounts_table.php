@@ -22,6 +22,7 @@ class CreateChartOfAccountsTable extends Migration
             $table->integer('sub_type')->default(0);
             $table->integer('is_enabled')->default(1);
             $table->text('description')->nullable();
+            $table->string('status')->default('active');
             $table->integer('created_by')->default(0);
             $table->timestamps();
         }

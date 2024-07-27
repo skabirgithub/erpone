@@ -1912,6 +1912,8 @@ class Utility extends Model
         // transport asset
         // assets
 
+        // liabilities
+        // Current Liabilities
         [
             'code' => '2101',
             'name' => 'Account Payable',
@@ -2066,6 +2068,8 @@ class Utility extends Model
             'type' => 'Liabilities',
             'sub_type' => 'Current Liabilities',
         ],
+        // Current Liabilities
+        // Long Term Liabilities
         [
             'code' => '2620',
             'name' => 'Bank Loans',
@@ -2078,12 +2082,16 @@ class Utility extends Model
             'type' => 'Liabilities',
             'sub_type' => 'Long Term Liabilities',
         ],
+        // Long Term Liabilities
+        // Share Capital
         [
             'code' => '3350',
             'name' => 'Common Shares',
             'type' => 'Liabilities',
             'sub_type' => 'Share Capital',
         ],
+        // Share Capital
+        // Retained Earnings
         [
             'code' => '3590',
             'name' => 'Reserves and Surplus',
@@ -2096,6 +2104,10 @@ class Utility extends Model
             'type' => 'Liabilities',
             'sub_type' => 'Retained Earnings',
         ],
+        // Retained Earnings
+        // liabilities
+
+
         [
             'code' => '3020',
             'name' => 'Opening Balances and adjustments',

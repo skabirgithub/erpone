@@ -17,6 +17,7 @@ class CreateChartOfAccountTypesTable extends Migration
             'chart_of_account_types', function (Blueprint $table){
             $table->id();
             $table->string('name')->nullable();
+            $table->string('status')->default('active');
             $table->integer('created_by')->default(0);
             $table->timestamps();
         }

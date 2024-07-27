@@ -1298,7 +1298,7 @@ class Utility extends Model
             'sub_type' => 4,
         ],
 
-        
+
         [
             'code' => '2620',
             'name' => 'Bank Loans',
@@ -2411,7 +2411,7 @@ class Utility extends Model
 
 
 
-// chart of account for new company
+    // chart of account for new company
     public static function chartOfAccountData1($user)
     {
         $chartOfAccounts = Self::$chartOfAccount1;

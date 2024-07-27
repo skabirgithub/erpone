@@ -3896,7 +3896,7 @@ class UsersTableSeeder extends Seeder
         Utility::employeeDetails($accountant->id, $company->id);
         // Utility::employeeDetails($client->id,$company->id);
         Utility::chartOfAccountTypeData($company->id);
-        Utility::chartOfAccountData($company);
+        Utility::chartOfAccountData($company->id);
         Utility::pipeline_lead_deal_Stage($company->id);
         Utility::project_task_stages($company->id);
         Utility::labels($company->id);

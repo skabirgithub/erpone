@@ -926,7 +926,7 @@ class Utility extends Model
             '2' => 'Maintenance and Repair',
             '3' => 'Engineering and HRM',
             '4' => 'Site Office Expense',
-            '5' => 'Travel and Allowances',
+            '5' => 'TA-DA',
             '6' => 'Site Advance',
             '7' => 'Site Expense',
             '8' => 'Site Income',
@@ -960,7 +960,7 @@ class Utility extends Model
         }
     }
 
-    
+
 
     public static $chartOfAccount1 = array(
 
@@ -1549,91 +1549,91 @@ class Utility extends Model
         // expense
         // Payroll Expenses
         [
-            'code' => '5201',
+            'code' => '6101',
             'name' => 'Salaries and Wages',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5202',
+            'code' => '6102',
             'name' => 'Directors Fees & Remuneration',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5203',
+            'code' => '6103',
             'name' => 'Wages - Overtime',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5204',
+            'code' => '6104',
             'name' => 'Members Salaries',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5205',
+            'code' => '6105',
             'name' => 'UIF Payments',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5206',
+            'code' => '6106',
             'name' => 'Payroll Taxes',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5207',
+            'code' => '6107',
             'name' => 'Workers Compensation ( Coida )',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5208',
+            'code' => '6108',
             'name' => 'Normal Taxation Paid',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5209',
+            'code' => '6109',
             'name' => 'General Benefits',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5210',
+            'code' => '6110',
             'name' => 'Provisional Tax Paid',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5211',
+            'code' => '6111',
             'name' => 'Inc Tax Exp - State',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5212',
+            'code' => '6112',
             'name' => 'Taxes - Real Estate',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5213',
+            'code' => '6113',
             'name' => 'Taxes - Personal Property',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5214',
+            'code' => '6114',
             'name' => 'Taxes - Franchise',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
         ],
         [
-            'code' => '5215',
+            'code' => '6115',
             'name' => 'Taxes - Foreign Withholding',
             'type' => 'Expenses',
             'sub_type' => 'Payroll Expenses',
@@ -1641,169 +1641,169 @@ class Utility extends Model
         // Payroll Expenses
         // General and Administrative expenses
         [
-            'code' => '5301',
+            'code' => '6201',
             'name' => 'Accounting Fees',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5302',
+            'code' => '6202',
             'name' => 'Advertising and Promotions',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5303',
+            'code' => '6203',
             'name' => 'Bad Debts',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5304',
+            'code' => '6204',
             'name' => 'Courier and Postage',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5305',
+            'code' => '6205',
             'name' => 'Depreciation Expense',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5306',
+            'code' => '6206',
             'name' => 'Insurance Expense',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5307',
+            'code' => '6207',
             'name' => 'Bank Charges',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5308',
+            'code' => '6208',
             'name' => 'Interest Paid',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5309',
+            'code' => '6209',
             'name' => 'Office Expenses - Consumables',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5310',
+            'code' => '6210',
             'name' => 'Printing and Stationary',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5311',
+            'code' => '6211',
             'name' => 'Security Expenses',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5312',
+            'code' => '6212',
             'name' => 'Subscription - Membership Fees',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5313',
+            'code' => '6213',
             'name' => 'Electricity, Gas and Water',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5314',
+            'code' => '6214',
             'name' => 'Rent Paid',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5315',
+            'code' => '6215',
             'name' => 'Repairs and Maintenance',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5316',
+            'code' => '6216',
             'name' => 'Motor Vehicle Expenses',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5317',
+            'code' => '6217',
             'name' => 'Petrol and Oil',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5318',
+            'code' => '6218',
             'name' => 'Equipment Hire - Rental',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5319',
+            'code' => '6219',
             'name' => 'Telephone and Internet',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5320',
+            'code' => '6220',
             'name' => 'Travel and Accommodation',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5321',
+            'code' => '6221',
             'name' => 'Meals and Entertainment',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5322',
+            'code' => '6222',
             'name' => 'Staff Training',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5323',
+            'code' => '6223',
             'name' => 'Utilities',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5324',
+            'code' => '6224',
             'name' => 'Computer Expenses',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5325',
+            'code' => '6225',
             'name' => 'Registrations',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5326',
+            'code' => '6226',
             'name' => 'Licenses',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5327',
+            'code' => '6227',
             'name' => 'Foreign Exchange Loss',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
         ],
         [
-            'code' => '5328',
+            'code' => '6228',
             'name' => 'Profit and Loss',
             'type' => 'Expenses',
             'sub_type' => 'General and Administrative expenses',
@@ -1812,170 +1812,170 @@ class Utility extends Model
         // expense
         // construction expenses
         [
-            'code' => '6101',
+            'code' => '7101',
             'name' => 'Goods Purchase',
             'type' => 'Construction Expenses',
             'sub_type' => 'Costs of Goods Purchase',
         ],
         [
-            'code' => '6102',
+            'code' => '7102',
             'name' => 'Advance for Purchase',
             'type' => 'Construction Expenses',
             'sub_type' => 'Costs of Goods Purchase',
         ],
         [
-            'code' => '6103',
+            'code' => '7103',
             'name' => 'Dues for Purchase',
             'type' => 'Construction Expenses',
             'sub_type' => 'Costs of Goods Purchase',
         ],
         [
-            'code' => '6104',
+            'code' => '7104',
             'name' => 'Payment for Purchase',
             'type' => 'Construction Expenses',
             'sub_type' => 'Costs of Goods Purchase',
         ],
 
         [
-            'code' => '6201',
+            'code' => '7201',
             'name' => 'Construction Maintenance',
             'type' => 'Construction Expenses',
             'sub_type' => 'Maintenance and Repair',
         ],
         [
-            'code' => '6202',
+            'code' => '7202',
             'name' => 'Construction Repair',
             'type' => 'Construction Expenses',
             'sub_type' => 'Maintenance and Repair',
         ],
 
         [
-            'code' => '6301',
+            'code' => '7301',
             'name' => 'Construction Engineering',
             'type' => 'Construction Expenses',
             'sub_type' => 'Engineering and HRM',
         ],
         [
-            'code' => '6302',
+            'code' => '7302',
             'name' => 'Construction HRM',
             'type' => 'Construction Expenses',
             'sub_type' => 'Engineering and HRM',
         ],
 
         [
-            'code' => '6401',
+            'code' => '7401',
             'name' => 'Head Office Foods',
             'type' => 'Construction Expenses',
             'sub_type' => 'Head Office Expense',
         ],
         [
-            'code' => '6402',
+            'code' => '7402',
             'name' => 'Head Office Snacks',
             'type' => 'Construction Expenses',
             'sub_type' => 'Head Office Expense',
         ],
         [
-            'code' => '6403',
+            'code' => '7403',
             'name' => 'Head Office Stationary',
             'type' => 'Construction Expenses',
             'sub_type' => 'Head Office Expense',
         ],
         [
-            'code' => '6404',
+            'code' => '7404',
             'name' => 'Head Office Internet',
             'type' => 'Construction Expenses',
             'sub_type' => 'Head Office Expense',
         ],
         [
-            'code' => '6405',
+            'code' => '7405',
             'name' => 'Head Office Paper',
             'type' => 'Construction Expenses',
             'sub_type' => 'Head Office Expense',
         ],
         [
-            'code' => '6406',
+            'code' => '7406',
             'name' => 'Head Office Service',
             'type' => 'Construction Expenses',
             'sub_type' => 'Head Office Expense',
         ],
         [
-            'code' => '6407',
+            'code' => '7407',
             'name' => 'Head Office Maintenance',
             'type' => 'Construction Expenses',
             'sub_type' => 'Head Office Expense',
         ],
 
         [
-            'code' => '6501',
+            'code' => '7501',
             'name' => 'Travel Expense',
             'type' => 'Construction Expenses',
-            'sub_type' => 'Travel and Allowance',
+            'sub_type' => 'Travel and Allowances',
         ],
         [
-            'code' => '6502',
+            'code' => '7502',
             'name' => 'TA-DA',
             'type' => 'Construction Expenses',
-            'sub_type' => 'Travel and Allowance',
+            'sub_type' => 'Travel and Allowances',
         ],
         [
-            'code' => '6503',
+            'code' => '7503',
             'name' => 'Transportation',
             'type' => 'Construction Expenses',
-            'sub_type' => 'Travel and Allowance',
+            'sub_type' => 'Travel and Allowances',
         ],
         [
-            'code' => '6504',
+            'code' => '7504',
             'name' => 'Advance',
             'type' => 'Construction Expenses',
-            'sub_type' => 'Travel and Allowance',
+            'sub_type' => 'Travel and Allowances',
         ],
         // construction expenses
 
         // construction materials
         [
-            'code' => '7101',
+            'code' => '8101',
             'name' => 'Soil',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
         ],
         [
-            'code' => '7102',
+            'code' => '8102',
             'name' => 'Steel',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
         ],
         [
-            'code' => '7103',
+            'code' => '8103',
             'name' => 'Wood',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
         ],
         [
-            'code' => '7104',
+            'code' => '8104',
             'name' => 'Bricks',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
         ],
         [
-            'code' => '7105',
+            'code' => '8105',
             'name' => 'Blocks',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
         ],
         [
-            'code' => '7106',
+            'code' => '8106',
             'name' => 'Crushed stone',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
         ],
         [
-            'code' => '7107',
+            'code' => '8107',
             'name' => 'Gravel',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
         ],
         [
-            'code' => '7108',
+            'code' => '8108',
             'name' => 'Sand',
             'type' => 'Construction Materials',
             'sub_type' => 'Structural Materials',
@@ -1983,96 +1983,126 @@ class Utility extends Model
 
 
         [
-            'code' => '7201',
+            'code' => '8201',
             'name' => 'Asphalt',
             'type' => 'Construction Materials',
             'sub_type' => 'Pavement Materials',
         ],
         [
-            'code' => '7202',
+            'code' => '8202',
             'name' => 'Concrete',
             'type' => 'Construction Materials',
             'sub_type' => 'Pavement Materials',
         ],
         [
-            'code' => '7203',
+            'code' => '8203',
             'name' => 'Recycled Materials',
             'type' => 'Construction Materials',
             'sub_type' => 'Pavement Materials',
         ],
 
         [
-            'code' => '7301',
+            'code' => '8301',
             'name' => 'Bitumen',
             'type' => 'Construction Materials',
             'sub_type' => 'Other Materials',
         ],
         [
-            'code' => '7302',
+            'code' => '8302',
             'name' => 'Cement',
             'type' => 'Construction Materials',
             'sub_type' => 'Other Materials',
         ],
         [
-            'code' => '7303',
+            'code' => '8303',
             'name' => 'Water',
             'type' => 'Construction Materials',
             'sub_type' => 'Other Materials',
         ],
         [
-            'code' => '7304',
+            'code' => '8304',
             'name' => 'Admixtures',
             'type' => 'Construction Materials',
             'sub_type' => 'Other Materials',
         ],
         [
-            'code' => '7305',
+            'code' => '8305',
             'name' => 'Geotextiles',
             'type' => 'Construction Materials',
             'sub_type' => 'Other Materials',
         ],
         [
-            'code' => '7306',
+            'code' => '8306',
             'name' => 'Reinforcing Steel',
             'type' => 'Construction Materials',
             'sub_type' => 'Other Materials',
         ],
         [
-            'code' => '7307',
+            'code' => '8307',
             'name' => 'Curbs and Gutters',
             'type' => 'Construction Materials',
             'sub_type' => 'Other Materials',
         ],
 
         [
-            'code' => '7401',
+            'code' => '8401',
             'name' => 'Bamboo',
             'type' => 'Construction Materials',
             'sub_type' => 'Additional Considerations',
         ],
         [
-            'code' => '7402',
+            'code' => '8402',
             'name' => 'Steel Sheet',
             'type' => 'Construction Materials',
             'sub_type' => 'Additional Considerations',
         ],
 
         [
-            'code' => '7501',
+            'code' => '8501',
             'name' => 'Construction Maintenance',
             'type' => 'Construction Materials',
             'sub_type' => 'Maintenance and Repair',
         ],
         [
-            'code' => '7502',
+            'code' => '8502',
             'name' => 'Construction Repair',
             'type' => 'Construction Materials',
             'sub_type' => 'Maintenance and Repair',
         ],
 
         [
-            'code' => '76501',
+            'code' => '8601',
             'name' => 'Construction Engineering',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Engineering',
+        ],
+        [
+            'code' => '8602',
+            'name' => 'Construction Planning',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Engineering',
+        ],
+        [
+            'code' => '8603',
+            'name' => 'Construction Estimation',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Engineering',
+        ],
+        [
+            'code' => '8604',
+            'name' => 'Construction Audit',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Engineering',
+        ],
+        [
+            'code' => '8605',
+            'name' => 'Quality Testing',
+            'type' => 'Construction Materials',
+            'sub_type' => 'Engineering',
+        ],
+        [
+            'code' => '8607',
+            'name' => 'Quality Assurance',
             'type' => 'Construction Materials',
             'sub_type' => 'Engineering',
         ],
@@ -2114,16 +2144,19 @@ class Utility extends Model
         foreach ($chartOfAccounts as $account) {
             $type = ChartOfAccountType::where('created_by', $user)->where('name', $account['type'])->first();
             $sub_type = ChartOfAccountSubType::where('created_by', $user)->where('type', $type->id)->where('name', $account['sub_type'])->first();
-            ChartOfAccount::create(
-                [
-                    'code' => $account['code'],
-                    'name' => $account['name'],
-                    'type' => $type->id,
-                    'sub_type' => $sub_type->id,
-                    'is_enabled' => 1,
-                    'created_by' => $user->id,
-                ]
-            );
+            if($sub_type){
+                ChartOfAccount::create(
+                    [
+                        'code' => $account['code'],
+                        'name' => $account['name'],
+                        'type' => $type->id,
+                        'sub_type' => $sub_type->id,
+                        'is_enabled' => 1,
+                        'created_by' => $user,
+                    ]
+                );
+            }
+
         }
     }
 

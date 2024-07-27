@@ -19,6 +19,7 @@ class CreateChartOfAccountSubTypesTable extends Migration
             $table->string('name')->default();
             $table->integer('type')->default(0);
             $table->string('status')->default('active');
+            $table->string('visibility')->default('public');
             $table->integer('created_by')->default(2);
             $table->timestamps();
         }

@@ -18,6 +18,7 @@ class CreateChartOfAccountTypesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('status')->default('active');
+            $table->string('visibility')->default('public');
             $table->integer('created_by')->default(0);
             $table->timestamps();
         }

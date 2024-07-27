@@ -898,7 +898,11 @@ class Utility extends Model
         'income' => 'Income',
         'costs of goods sold' => 'Costs of Goods Sold',
         'expenses' => 'Expenses',
-        'costs of goods purchase' => 'Costs of Goods Purchase',
+        'construction expenses' => 'Construction Expenses',
+        'construction materials' => 'Construction Materials',
+        'construction mecineries' => 'Construction Mecineries',
+        'construction vehicles' => 'Construction Vehicles',
+        'site expenses' => 'Site Expenses',
 
     ];
 
@@ -933,11 +937,42 @@ class Utility extends Model
             '1' => 'Payroll Expenses',
             '2' => 'General and Administrative expenses',
         ),
-        "costs of goods purchase" => array(
+        "construction expenses" => array(
             '1' => 'Costs of Goods Purchase',
-            '2' => 'Construction Materials Purchase',
-            '3' => 'Construction Machinery Purchase',
-            '4' => 'Construction Vehicles Purchase',
+            '2' => 'Maintenance and Repair',
+            '3' => 'Engineering and HRM',
+            '4' => 'Head Office Expense',
+            '5' => 'Travel and Allowances',
+        ),
+        "construction materials" => array(
+            '1' => 'Structural Materials',
+            '2' => 'Finishing Materials',
+            '3' => 'Other Materials',
+            '4' => 'Additional Considerations',
+            '5' => 'Maintenance and Repair',
+            '6' => 'Engineering',
+        ),
+        "construction mecineries" => array(
+            '1' => 'Earthmoving and Excavation',
+            '2' => 'Material Handling',
+            '3' => 'Compaction',
+            '4' => 'Concrete Work',
+            '5' => 'Road Construction',
+            '6' => 'Demolition',
+            '7' => 'Other Equipment',
+            '8' => 'Engineering and Maintenance',
+            '9' => 'Transport and Garage',
+        ),
+        "construction vehicles" => array(
+            '1' => 'Earthmoving and Transport',
+            '2' => 'Excavation and Material Handling',
+            '3' => 'Compaction and Paving',
+            '4' => 'Concrete Work',
+            '5' => 'Support Vehicles',
+            '6' => 'Specialized Vehicles',
+            '7' => 'Other Vehicles',
+            '8' => 'Engineering and Maintenance',
+            '9' => 'Transport and Garage',
         ),
 
 
@@ -2582,6 +2617,26 @@ class Utility extends Model
         ],
         // General and Administrative expenses
         // expense
+        // construction
+        [
+            'code' => '6101',
+            'name' => 'Concrete Purchase',
+            'type' => 'Constructions',
+            'sub_type' => 'Costs of Goods Purchase',
+        ],
+        [
+            'code' => '6102',
+            'name' => 'Bricks Purchase',
+            'type' => 'Constructions',
+            'sub_type' => 'Costs of Goods Purchase',
+        ],
+        [
+            'code' => '6103',
+            'name' => 'Bricks Purchase',
+            'type' => 'Constructions',
+            'sub_type' => 'Costs of Goods Purchase',
+        ],
+        // construction
 
     );
 

@@ -2746,6 +2746,9 @@ class Utility extends Model
         ],
         // construction expenses
 
+        // construction expenses
+        // construction expenses
+
     );
 
 
@@ -2777,15 +2780,17 @@ class Utility extends Model
 
     public static function chartOfAccountData($user)
     {
-        $chartOfAccounts = Self::$chartOfAccount;
+        $chartOfAccounts = Self::$chartOfAccount1;
         foreach($chartOfAccounts as $account)
         {
+            $type=ChartOfAccountType::where('created_by',$user)->where('name',$account['type'])->first();
+            $sub_type=ChartOfAccountSubType::where('type',$type->id)->where('name',$account['sub_type'])->first();
             ChartOfAccount::create(
                 [
                     'code' => $account['code'],
                     'name' => $account['name'],
-                    'type' => $account['type'],
-                    'sub_type' => $account['sub_type'],
+                    'type' => $type->id,
+                    'sub_type' => $sub_type->id,
                     'is_enabled' => 1,
                     'created_by' => $user->id,
                 ]

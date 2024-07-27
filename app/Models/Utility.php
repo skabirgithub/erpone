@@ -2138,6 +2138,30 @@ class Utility extends Model
         }
     }
 
+    public static function createDefaultUnit($user_id)
+    {
+        $unit_names = ['Piece','Liter','KG','Ton','Bundle','Unit','Meter','KM',];
+        foreach ($unit_names as $key => $unit) {
+            $create_unit = ProductServiceUnit::create(
+                [
+                    'name' => $unit,
+                    'created_by' => $user_id,
+                ]
+            );
+        }
+    }
+
+    public static function createDefaultTax($user_id)
+    {
+        $create_tax = Tax::create(
+            [
+                'name' => 'No Tax',
+                'rate' => 0,
+                'created_by' => $user_id,
+            ]
+        );
+    }
+
     // public static function chartOfAccountData($user)
     // {
     //     $chartOfAccounts = Self::$chartOfAccount1;

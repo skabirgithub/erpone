@@ -113,6 +113,9 @@ class UserController extends Controller
                 //default bank account for new company
                 $user->userDefaultBankAccount($user->id);
 
+                Utility::createDefaultUnit($user->id);
+                Utility::createDefaultTax($user->id);
+
                 Utility::chartOfAccountTypeData($user->id);
                 // Utility::chartOfAccountData($user);
                 // default chart of account for new company

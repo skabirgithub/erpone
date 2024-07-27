@@ -23,10 +23,15 @@ class ProductServiceCategory extends Model
         'product & service' => 'Product & Service',
         'income' => 'Income',
         'expense' => 'Expense',
-        'asset'=> 'Asset',
-        'liability' => 'Liability',
+        'assets' => 'Assets',
+        'liabilities' => 'Liabilities',
         'equity' => 'Equity',
-        'costs of good sold' => 'Costs of Goods Sold',
+        'costs of goods sold' => 'Costs of Goods Sold',
+        'construction expenses' => 'Construction Expenses',
+        'construction materials' => 'Construction Materials',
+        'construction mecineries' => 'Construction Mecineries',
+        'construction vehicles' => 'Construction Vehicles',
+        'site expenses' => 'Site Expenses',
     ];
 
 

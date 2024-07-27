@@ -3895,16 +3895,21 @@ class UsersTableSeeder extends Seeder
 
         Utility::employeeDetails($accountant->id, $company->id);
         // Utility::employeeDetails($client->id,$company->id);
+        Utility::createDefaultUnit($company->id);
+        Utility::createDefaultTax($company->id);
         Utility::chartOfAccountTypeData($company->id);
         Utility::chartOfAccountData1($company->id);
+
         Utility::pipeline_lead_deal_Stage($company->id);
         Utility::project_task_stages($company->id);
         Utility::labels($company->id);
         Utility::sources($company->id);
         Utility::jobStage($company->id);
+
         $company->defaultEmail();
         $company::userDefaultData();
         $company::userDefaultWarehouse();
+        
         GenerateOfferLetter::defaultOfferLetter();
         ExperienceCertificate::defaultExpCertificat();
         JoiningLetter::defaultJoiningLetter();

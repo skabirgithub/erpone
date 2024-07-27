@@ -1737,92 +1737,183 @@ class Utility extends Model
 
     public static $chartOfAccount1 = array(
 
+        // assets
+        // current asset
         [
-            'code' => '1060',
+            'code' => '1101',
             'name' => 'Checking Account',
             'type' => 'Assets',
             'sub_type' => 'Current Asset',
         ],
         [
-            'code' => '1065',
+            'code' => '1102',
             'name' => 'Petty Cash',
             'type' => 'Assets',
             'sub_type' => 'Current Asset',
         ],
         [
-            'code' => '1200',
+            'code' => '1103',
             'name' => 'Account Receivables',
             'type' => 'Assets',
             'sub_type' => 'Current Asset',
         ],
         [
-            'code' => '1205',
+            'code' => '1104',
             'name' => 'Allowance for doubtful accounts',
             'type' => 'Assets',
             'sub_type' => 'Current Asset',
         ],
+        // current asset
+        // inventory asset
         [
-            'code' => '1510',
+            'code' => '1201',
             'name' => 'Inventory',
             'type' => 'Assets',
             'sub_type' => 'Inventory Asset',
         ],
         [
-            'code' => '1520',
+            'code' => '1202',
             'name' => 'Stock of Raw Materials',
             'type' => 'Assets',
             'sub_type' => 'Inventory Asset',
         ],
         [
-            'code' => '1530',
+            'code' => '1203',
             'name' => 'Stock of Work In Progress',
             'type' => 'Assets',
             'sub_type' => 'Inventory Asset',
         ],
         [
-            'code' => '1540',
+            'code' => '1204',
             'name' => 'Stock of Finished Goods',
             'type' => 'Assets',
             'sub_type' => 'Inventory Asset',
         ],
         [
-            'code' => '1550',
+            'code' => '1205',
             'name' => 'Goods Received Clearing account',
             'type' => 'Assets',
             'sub_type' => 'Inventory Asset',
         ],
+        // inventory asset
+        // non-current asset
         [
-            'code' => '1810',
+            'code' => '1301',
             'name' => 'Land and Buildings',
             'type' => 'Assets',
             'sub_type' => 'Non-current Asset',
         ],
         [
-            'code' => '1820',
+            'code' => '1302',
             'name' => 'Office Furniture and Equipement',
             'type' => 'Assets',
             'sub_type' => 'Non-current Asset',
         ],
         [
-            'code' => '1825',
+            'code' => '1303',
             'name' => 'Accum.depreciation-Furn. and Equip',
             'type' => 'Assets',
             'sub_type' => 'Non-current Asset',
         ],
         [
-            'code' => '1840',
+            'code' => '1304',
             'name' => 'Motor Vehicle',
             'type' => 'Assets',
             'sub_type' => 'Non-current Asset',
         ],
         [
-            'code' => '1845',
+            'code' => '1305',
             'name' => 'Accum.depreciation-Motor Vehicle',
             'type' => 'Assets',
             'sub_type' => 'Non-current Asset',
         ],
+        // non-current asset
+        // machinery asset
         [
-            'code' => '2100',
+            'code' => '1401',
+            'name' => 'Earthmoving and Excavation Machinery',
+            'type' => 'Assets',
+            'sub_type' => 'Machinery Asset',
+        ],
+        [
+            'code' => '1402',
+            'name' => 'Material Handling Machinery',
+            'type' => 'Assets',
+            'sub_type' => 'Machinery Asset',
+        ],
+        [
+            'code' => '1403',
+            'name' => 'Compaction Machinery',
+            'type' => 'Assets',
+            'sub_type' => 'Machinery Asset',
+        ],
+        [
+            'code' => '1404',
+            'name' => 'Concrete Work Machinery',
+            'type' => 'Assets',
+            'sub_type' => 'Machinery Asset',
+        ],
+        [
+            'code' => '1405',
+            'name' => 'Road Construction Machinery',
+            'type' => 'Assets',
+            'sub_type' => 'Machinery Asset',
+        ],
+        [
+            'code' => '1406',
+            'name' => 'Demolition Machinery',
+            'type' => 'Assets',
+            'sub_type' => 'Machinery Asset',
+        ],
+        [
+            'code' => '1407',
+            'name' => 'Other Equipment Machinery',
+            'type' => 'Assets',
+            'sub_type' => 'Machinery Asset',
+        ],
+        // machinery asset
+        // transport asset
+        [
+            'code' => '1501',
+            'name' => 'Earthmoving and Transport',
+            'type' => 'Assets',
+            'sub_type' => 'Transport Asset',
+        ],
+        [
+            'code' => '1502',
+            'name' => 'Excavation and Material Handling Transport',
+            'type' => 'Assets',
+            'sub_type' => 'Transport Asset',
+        ],
+        [
+            'code' => '1503',
+            'name' => 'Compaction and Paving Transport',
+            'type' => 'Assets',
+            'sub_type' => 'Transport Asset',
+        ],
+        [
+            'code' => '1504',
+            'name' => 'Concrete Work Transport',
+            'type' => 'Assets',
+            'sub_type' => 'Transport Asset',
+        ],
+        [
+            'code' => '1505',
+            'name' => 'Support Vehicles',
+            'type' => 'Assets',
+            'sub_type' => 'Transport Asset',
+        ],
+        [
+            'code' => '1506',
+            'name' => 'Specialized Vehicles',
+            'type' => 'Assets',
+            'sub_type' => 'Transport Asset',
+        ],
+        // transport asset
+        // assets
+
+        [
+            'code' => '2101',
             'name' => 'Account Payable',
             'type' => 'Liabilities',
             'sub_type' => 'Current Liabilities',

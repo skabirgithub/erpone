@@ -2221,7 +2221,25 @@ class Utility extends Model
         ],
         [
             'code' => '4303',
-            'name' => 'Advanced Revenue',
+            'name' => 'Project Profit',
+            'type' => 'Income',
+            'sub_type' => 'Project Revenue',
+        ],
+        [
+            'code' => '4304',
+            'name' => 'Project Advance',
+            'type' => 'Income',
+            'sub_type' => 'Project Revenue',
+        ],
+        [
+            'code' => '4305',
+            'name' => 'Project Adjustment',
+            'type' => 'Income',
+            'sub_type' => 'Project Revenue',
+        ],
+        [
+            'code' => '4306',
+            'name' => 'Project Extension',
             'type' => 'Income',
             'sub_type' => 'Project Revenue',
         ],

@@ -41,7 +41,7 @@
                                 <tr>
                                     <td class="font-style">{{ $category->name }}</td>
                                     <td class="font-style">
-                                        {{ __(\App\Models\ProductServiceCategory::$catTypes[$category->type]) }}
+                                        {{ __(\App\Models\ProductServiceCategory::$catTypes[$category->type]??'') }}
                                     </td>
                                     <td>{{ (!empty($category->chartAccount)?$category->chartAccount->name :'-') }}</td>
 

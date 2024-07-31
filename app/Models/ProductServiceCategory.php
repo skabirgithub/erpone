@@ -10,6 +10,9 @@ class ProductServiceCategory extends Model
     protected $fillable = [
         'name',
         'type',
+        'coa_subtype',
+        'chart_account_id',
+        'color',
         'created_by',
     ];
 
@@ -20,7 +23,7 @@ class ProductServiceCategory extends Model
     ];
 
     public static $catTypes = [
-        'product & service' => 'Product & Service',
+        // 'product & service' => 'Product & Service',
         'income' => 'Income',
         'expense' => 'Expense',
         'assets' => 'Assets',

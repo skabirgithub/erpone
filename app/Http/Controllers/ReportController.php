@@ -203,7 +203,9 @@ class ReportController extends Controller
             $account->prepend('Select Account', '');
             $vender = Vender::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $vender->prepend('Select Vendor', '');
-            $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 'expense')->get()->pluck('name', 'id');
+            $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())
+            // ->where('type', '=', 'expense')
+            ->get()->pluck('name', 'id');
             $category->prepend('Select Category', '');
 
             $data['monthList'] = $month = $this->yearMonth();
@@ -1142,9 +1144,9 @@ class ReportController extends Controller
                     else
                     {
                         $totalAccounts[$category][$name]['totalDebit'] += $entry['totalDebit'];
-                        $totalAccounts[$category][$name]['totalCredit'] += $entry['totalCredit'];    
+                        $totalAccounts[$category][$name]['totalCredit'] += $entry['totalCredit'];
                     }
-                    
+
                 }
             }
             $filter['startDateRange'] = $start;
@@ -1804,7 +1806,7 @@ class ReportController extends Controller
         $monthList = $month = $this->yearMonth();
 
         //staff report
-        
+
 
         if ($request->type == "staff_repport") {
             $form_date = date('Y-m-d H:i:s', strtotime($request->From_Date));
@@ -1833,7 +1835,7 @@ class ReportController extends Controller
             }
         }
 
-        
+
 
         $lead_pipeline = Pipeline::where('created_by', \Auth::user()->id)->get();
 

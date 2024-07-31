@@ -839,12 +839,12 @@ class Utility extends Model
     }
 
     public static $chartOfAccountType = [
+        'income' => 'Income',
+        'expenses' => 'Expenses',
         'assets' => 'Assets',
         'liabilities' => 'Liabilities',
         'equity' => 'Equity',
-        'income' => 'Income',
         'costs of goods sold' => 'Costs of Goods Sold',
-        'expenses' => 'Expenses',
         'construction expenses' => 'Construction Expenses',
         'construction materials' => 'Construction Materials',
         'construction mecineries' => 'Construction Mecineries',
@@ -959,6 +959,8 @@ class Utility extends Model
             }
         }
     }
+
+
 
 
 
@@ -2140,7 +2142,7 @@ class Utility extends Model
 
     public static function createDefaultUnit($user_id)
     {
-        $unit_names = ['Piece','Liter','KG','Ton','Bundle','Unit','Meter','KM',];
+        $unit_names = ['Piece', 'Liter', 'KG', 'Ton', 'Bundle', 'Unit', 'Meter', 'KM',];
         foreach ($unit_names as $key => $unit) {
             $create_unit = ProductServiceUnit::create(
                 [
@@ -2160,6 +2162,40 @@ class Utility extends Model
                 'created_by' => $user_id,
             ]
         );
+    }
+
+    public static function createDefaultProductCategory($user_id)
+    {
+        $get_users_coa_subtypes = ChartOfAccountSubType::where('created_by', $user_id)->get();
+        foreach ($get_users_coa_subtypes as $key => $coa_subtype) {
+            $create_product_category = ProductServiceCategory::create([
+                'name' => $coa_subtype->name,
+                'type' => ($coa_subtype->type),
+                'coa_subtype' => $coa_subtype->id,
+                'chart_account_id' => 0,
+                'color' => '#FFFFFF',
+                'created_by' => $user_id,
+            ]);
+        }
+    }
+    public static function createDefaultProduct($user_id)
+    {
+        $get_users_coa = ChartOfAccount::where('created_by', $user_id)->get();
+        foreach ($get_users_coa as $key => $coa) {
+            $create_product = ProductService::create([
+                'name'=>$coa->name,
+                'sku'=>$coa->code,
+                'sale_price'=>0,
+                'purchase_price'=>0,
+                'tax_id'=>Tax::where('created_by',$user_id)->get()->first()->id??1,
+                'category_id'=>$coa->type,
+                'unit_id'=>ProductServiceUnit::where('created_by',$user_id)->get()->first()->id??1,
+                'type'=>1,
+                'sale_chartaccount_id'=>$coa->id,
+                'expense_chartaccount_id'=>$coa->id,
+                'created_by'=>$user_id,
+            ]);
+        }
     }
 
     // public static function chartOfAccountData($user)

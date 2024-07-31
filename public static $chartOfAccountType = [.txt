@@ -1,0 +1,13 @@
+public static $chartOfAccountType = [
+        'assets' => 'Assets',
+        'liabilities' => 'Liabilities',
+        'equity' => 'Equity',
+        'income' => 'Income',
+        'costs of goods sold' => 'Costs of Goods Sold',
+        'expenses' => 'Expenses',
+        'construction expenses' => 'Construction Expenses',
+        'construction materials' => 'Construction Materials',
+        'construction mecineries' => 'Construction Mecineries',
+        'construction vehicles' => 'Construction Vehicles',
+        'site expenses' => 'Site Expenses',
+    ];

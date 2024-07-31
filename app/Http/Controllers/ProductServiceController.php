@@ -33,7 +33,9 @@ class ProductServiceController extends Controller
 
         if(\Auth::user()->can('manage product & service'))
         {
-            $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 'product & service')->get()->pluck('name', 'id');
+            $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())
+            // ->where('type', '=', 'product & service')
+            ->get()->pluck('name', 'id');
             $category->prepend('Select Category', '');
 
             if(!empty($request->category))
@@ -60,7 +62,9 @@ class ProductServiceController extends Controller
         if(\Auth::user()->can('create product & service'))
         {
             $customFields = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'product')->get();
-            $category     = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 'product & service')->get()->pluck('name', 'id');
+            $category     = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())
+            // ->where('type', '=', 'product & service')
+            ->get()->pluck('name', 'id');
             $unit         = ProductServiceUnit::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $tax          = Tax::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $incomeChartAccounts = ChartOfAccount::select(\DB::raw('CONCAT(chart_of_accounts.code, " - ", chart_of_accounts.name) AS code_name, chart_of_accounts.id as id'))
@@ -177,7 +181,9 @@ class ProductServiceController extends Controller
         {
             if($productService->created_by == \Auth::user()->creatorId())
             {
-                $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())->where('type', '=', 'product & service')->get()->pluck('name', 'id');
+                $category = ProductServiceCategory::where('created_by', '=', \Auth::user()->creatorId())
+                // ->where('type', '=', 'product & service')
+                ->get()->pluck('name', 'id');
                 $unit     = ProductServiceUnit::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
                 $tax      = Tax::where('created_by', '=', \Auth::user()->creatorId())->get()->pluck('name', 'id');
 

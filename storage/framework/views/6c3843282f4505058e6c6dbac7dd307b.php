@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('page-title'); ?>
     <?php echo e(__('Manage Product-Service & Income-Expense Category')); ?>
 
@@ -42,7 +41,7 @@
                                 <tr>
                                     <td class="font-style"><?php echo e($category->name); ?></td>
                                     <td class="font-style">
-                                        <?php echo e(__(\App\Models\ProductServiceCategory::$catTypes[$category->type])); ?>
+                                        <?php echo e(__(\App\Models\ProductServiceCategory::$catTypes[$category->type]??'')); ?>
 
                                     </td>
                                     <td><?php echo e((!empty($category->chartAccount)?$category->chartAccount->name :'-')); ?></td>

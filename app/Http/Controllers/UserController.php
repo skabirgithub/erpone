@@ -80,6 +80,7 @@ class UserController extends Controller
                 }
                 $user               = new User();
                 $user['name']       = $request->name;
+                $user['project']       = $request->name;
                 $user['email']      = $request->email;
                 $psw                = $request->password;
                 $user['password']   = Hash::make($request->password);

@@ -2117,6 +2117,7 @@ class Utility extends Model
 
 
 
+    // skoder team code
     // chart of account for new company
     public static function chartOfAccountData1($user)
     {
@@ -2183,20 +2184,51 @@ class Utility extends Model
         $get_users_coa = ChartOfAccount::where('created_by', $user_id)->get();
         foreach ($get_users_coa as $key => $coa) {
             $create_product = ProductService::create([
-                'name'=>$coa->name,
-                'sku'=>$coa->code,
-                'sale_price'=>0,
-                'purchase_price'=>0,
-                'tax_id'=>Tax::where('created_by',$user_id)->get()->first()->id??1,
-                'category_id'=>$coa->type,
-                'unit_id'=>ProductServiceUnit::where('created_by',$user_id)->get()->first()->id??1,
-                'type'=>1,
-                'sale_chartaccount_id'=>$coa->id,
-                'expense_chartaccount_id'=>$coa->id,
-                'created_by'=>$user_id,
+                'name' => $coa->name,
+                'sku' => $coa->code,
+                'sale_price' => 0,
+                'purchase_price' => 0,
+                'tax_id' => Tax::where('created_by', $user_id)->get()->first()->id ?? 1,
+                'category_id' => $coa->type,
+                'unit_id' => ProductServiceUnit::where('created_by', $user_id)->get()->first()->id ?? 1,
+                'type' => 1,
+                'sale_chartaccount_id' => $coa->id,
+                'expense_chartaccount_id' => $coa->id,
+                'created_by' => $user_id,
             ]);
         }
     }
+
+    public static function hrmInitials($user_id)
+    {
+        $create_branch = Branch::create([
+            'name' => 'Base Office',
+            'created_by' => $user_id,
+        ]);
+
+        $dept_names = ['Administration', 'Engineering', 'Marketing', 'Construction', 'Audit', 'Finance', 'Security', 'Management', 'Warehouse', 'Transport', 'Controller'];
+
+        $desig_names = ['Head of ','Assistant Officer - ','Manager - ',];
+
+        foreach ($dept_names as $key => $deptname) {
+            $department_create = Department::create([
+                'name' => $deptname,
+                'created_by' => $user_id,
+                'branch_id' => $create_branch->id,
+            ]);
+            foreach ($desig_names as $key => $designame) {
+                $create_designation = Designation::create([
+                    'department_id'=>$department_create->id,
+                    'name'=>$designame.$deptname,
+                    'created_by'=>$user_id,
+                ]);
+            }
+        }
+
+
+    }
+
+    // skoder team code
 
     // public static function chartOfAccountData($user)
     // {

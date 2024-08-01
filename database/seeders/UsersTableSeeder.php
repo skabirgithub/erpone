@@ -3904,6 +3904,7 @@ class UsersTableSeeder extends Seeder
         Utility::createDefaultTax($company->id);
         Utility::createDefaultProductCategory($company->id);
         Utility::createDefaultProduct($company->id);
+        Utility::hrmInitials($company->id);
 
         Utility::pipeline_lead_deal_Stage($company->id);
         Utility::project_task_stages($company->id);

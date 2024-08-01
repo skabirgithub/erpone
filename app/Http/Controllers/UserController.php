@@ -114,6 +114,7 @@ class UserController extends Controller
                 Utility::createDefaultTax($user->id);
                 Utility::createDefaultProductCategory($user->id);
                 Utility::createDefaultProduct($user->id);
+                Utility::hrmInitials($user->id);
 
 
 

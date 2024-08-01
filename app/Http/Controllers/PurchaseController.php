@@ -54,7 +54,7 @@ class PurchaseController extends Controller
         if(\Auth::user()->can('create purchase'))
         {
             $customFields = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'purchase')->get();
-            $category     = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 'expense')->get()->pluck('name', 'id');
+            $category     = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $category->prepend('Select Category', '');
 
             $purchase_number = \Auth::user()->purchaseNumberFormat($this->purchaseNumber());
@@ -195,7 +195,7 @@ class PurchaseController extends Controller
 
             $idwww   = Crypt::decrypt($idsd);
             $purchase     = Purchase::find($idwww);
-            $category = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->where('type', 'expense')->get()->pluck('name', 'id');
+            $category = ProductServiceCategory::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $category->prepend('Select Category', '');
             $warehouse     = warehouse::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
 

@@ -2110,8 +2110,149 @@ class Utility extends Model
         ],
         // construction materials
 
-        // construction materials
-        // construction materials
+        // construction Mecineries
+        // Earthmoving and Excavation
+        [
+            'code' => '9101',
+            'name' => 'Bulldozer',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        [
+            'code' => '9102',
+            'name' => 'Excavator',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        [
+            'code' => '9103',
+            'name' => 'Backhoe Loader',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        [
+            'code' => '9104',
+            'name' => 'Loader',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        [
+            'code' => '9105',
+            'name' => 'Scraper',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        [
+            'code' => '9106',
+            'name' => 'Grader',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        [
+            'code' => '9107',
+            'name' => 'Trencher',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        [
+            'code' => '9108',
+            'name' => 'Dumper',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Earthmoving and Excavation',
+        ],
+        // Earthmoving and Excavation
+
+        // Material Handling
+        [
+            'code' => '9201',
+            'name' => 'Crane',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Material Handling',
+        ],
+        [
+            'code' => '9202',
+            'name' => 'Forklift',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Material Handling',
+        ],
+        [
+            'code' => '9203',
+            'name' => 'Telehandler',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Material Handling',
+        ],
+        [
+            'code' => '9204',
+            'name' => 'Concrete Pump',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Material Handling',
+        ],
+        // Material Handling
+
+        // Compaction
+        [
+            'code' => '9301',
+            'name' => 'Roller',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Compaction',
+        ],
+        [
+            'code' => '9302',
+            'name' => 'Rammer',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Compaction',
+        ],
+        // Compaction
+
+        // Concrete Work
+        [
+            'code' => '9401',
+            'name' => 'Concrete Mixer',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Concrete Work',
+        ],
+        [
+            'code' => '9402',
+            'name' => 'Concrete Cutter',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Concrete Work',
+        ],
+        // Concrete Work
+
+        // Road Construction
+        [
+            'code' => '9501',
+            'name' => 'Asphalt paver',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Road Construction',
+        ],
+        [
+            'code' => '9502',
+            'name' => 'Finishers',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Road Construction',
+        ],
+        // Road Construction
+
+        // Demolition
+        [
+            'code' => '9601',
+            'name' => 'Hydraulic breaker',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Demolition',
+        ],
+        [
+            'code' => '9602',
+            'name' => 'Demolition robot',
+            'type' => 'Construction Mecineries',
+            'sub_type' => 'Demolition',
+        ],
+        // Demolition
+
+
+
+
+        // construction Mecineries
 
     );
 

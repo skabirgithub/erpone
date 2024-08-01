@@ -21,14 +21,14 @@
 <div class="navbar-wrapper">
     <div class="m-header main-logo">
         <a href="#" class="b-brand">
-            
+                           
 
             <?php if($setting['cust_darklayout'] && $setting['cust_darklayout'] == 'on'): ?>
                 <img src="<?php echo e($logo . '/' . (isset($company_logos) && !empty($company_logos) ? $company_logos : 'logo-dark.png')); ?>"
-                    alt="<?php echo e(config('app.name', 'ERPGo-SaaS')); ?>" class="logo logo-lg">
+                    alt="<?php echo e(config('app.name', 'ERPOne')); ?>" class="logo logo-lg">
             <?php else: ?>
                 <img src="<?php echo e($logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png')); ?>"
-                    alt="<?php echo e(config('app.name', 'ERPGo-SaaS')); ?>" class="logo logo-lg">
+                    alt="<?php echo e(config('app.name', 'ERPOne')); ?>" class="logo logo-lg">
             <?php endif; ?>
 
         </a>

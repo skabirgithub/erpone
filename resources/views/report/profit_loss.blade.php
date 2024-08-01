@@ -38,7 +38,7 @@
         {{ Form::close() }}
     </div>
 
-    
+
     <div class="float-end me-2" id="filter">
         <button id="filter" class="btn btn-sm btn-primary"><i class="ti ti-filter"></i></button>
     </div>
@@ -132,7 +132,7 @@
                     <div
                         class="aacount-title d-flex align-items-center justify-content-between border-top border-bottom py-2">
                         <h6 class="mb-0">{{ __('Account') }}</h6>
-                        <h6 class="mb-0 text-center">{{ _('Account Code') }}</h6>
+                        <h6 class="mb-0 text-center">{{ __('Account Code') }}</h6>
                         <h6 class="mb-0 text-end">{{ __('Total') }}</h6>
 
                     </div>
@@ -169,7 +169,7 @@
                                         if ($record['account_name'] === 'Total Income') {
                                             $totalIncome = $record['netAmount'];
                                         }
-                                        
+
                                         if ($record['account_name'] == 'Total Costs of Goods Sold') {
                                             $totalCosts = $record['netAmount'];
                                         }
@@ -182,7 +182,7 @@
                         <div class="account-main-inner border-bottom py-2">
                             <p class="fw-bold mb-2">{{ $accounts['Type'] }}</p>
 
-                            @foreach ($accounts['account'] as $key => $record)                            
+                            @foreach ($accounts['account'] as $key => $record)
                             @php
                                 if($record['netAmount'] > 0)
                                 {
@@ -212,7 +212,7 @@
                                     if ($record['account_name'] === 'Total Income') {
                                         $totalIncome = $record['netAmount'];
                                     }
-                                    
+
                                     if ($record['account_name'] == 'Total Costs of Goods Sold') {
                                         $totalCosts = $netAmount;
                                     }
@@ -262,7 +262,7 @@
                                             {{ \Auth::user()->priceFormat($netAmount) }}</p>
                                     </div>
 
-                                    @php                                        
+                                    @php
                                         if ($record['account_name'] === 'Total Expenses') {
                                             $totalIncome = $record['netAmount'];
                                             $netProfit = $grossProfit - $netAmount;
@@ -271,7 +271,7 @@
 
                                 @endforeach
                             </div>
-                            
+
                             <div class="account-inner d-flex align-items-center justify-content-between border-bottom">
                                 <p></p>
                                 <p class="fw-bold mb-2 text-center">{{ __('Net Profit/Loss') }}</p>

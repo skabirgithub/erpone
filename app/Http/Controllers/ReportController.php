@@ -3432,9 +3432,10 @@ class ReportController extends Controller
                 $start = date('Y-01-01');
                 $end = date('Y-m-d', strtotime('+1 day'));
             }
-            $types = ChartOfAccountType::where('created_by', \Auth::user()->creatorId())->whereIn('name', ['Income', 'Costs of Goods Sold', 'Expenses'])->get();
+            $types = ChartOfAccountType::where('created_by', \Auth::user()->creatorId())->get();
 
             $chartAccounts = [];
+            $subTypeArray = [];
             foreach ($types as $type) {
                 $accounts = ChartOfAccount::where('created_by', \Auth::user()->creatorId())->where('type', $type->id)->get();
 
@@ -3465,6 +3466,7 @@ class ReportController extends Controller
                 }
 
                 $totalAccountArray = [];
+                // return $accountArray;
 
                 if ($accountArray != []) {
                     $dataTotal['account_id'] = '';

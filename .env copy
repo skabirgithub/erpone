@@ -4,14 +4,14 @@ APP_ENV=local
 APP_KEY=base64:lCnU1R4CZzwcJc3fDdwQDV8s5OzSnq+89+WVn2lsGn8=
 APP_DEBUG=true
 APP_LOG_LEVEL=debug
-APP_URL=http://erpone.test
+APP_URL=http://erp.skoder.co
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=erpone
-DB_USERNAME=root
-DB_PASSWORD=
+DB_DATABASE=skodr_erp
+DB_USERNAME=skodr_erp
+DB_PASSWORD=skdr_erpskdr_erp
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
